@@ -1,10 +1,10 @@
 #include <SDL.h>
-//#include <stdio.h>
 
 class Player {
 	int xPos, yPos;  //position
 	int xVel, yVel;  //velocity
-	SDL_Texture tex;
+	SDL_Texture *texture;
 
-	void init();
+	void init(std::string path);
+	void render(SDL_Renderer *renderer);
 };

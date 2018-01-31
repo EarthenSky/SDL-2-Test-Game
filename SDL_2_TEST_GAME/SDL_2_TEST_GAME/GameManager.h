@@ -5,7 +5,7 @@
 #include <stdio.h>
 //#include <string>  //incase I need strings.
 
-void startGameLoop();
+void gameLoopInit();
 void finalClose();
 
 #endif 

@@ -7,7 +7,8 @@ const int RUNNING = 1;
 const int PAUSED = 2;
 int gGameState = RUNNING;
 
-void startGameLoop()
+//init classes here
+void gameLoopInit()
 {
 	update();
 }
