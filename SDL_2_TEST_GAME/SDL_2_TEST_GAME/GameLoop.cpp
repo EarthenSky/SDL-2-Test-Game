@@ -12,7 +12,10 @@ const int RUNNING = 1;
 const int PAUSED = 2;
 int gGameState = RUNNING;
 
-void GameLoop(SDL_Renderer *renderer) 
+//SDL_Renderer *gRenderer = NULL;  //not og gRenderer
+//have a start game loop function and an update function
+
+void GameLoop(SDL_Renderer *renderer)
 {
 	//main GameLoop:
 	while (gGameState != STOPPED) {
@@ -44,18 +47,18 @@ void RenderAssets(SDL_Renderer *renderer)
 	SDL_RenderPresent(renderer);
 }
 
-void HandleInput() 
+void HandleInput()
 {
 	while (SDL_PollEvent(&gInputHandler) != 0) {
 		if (gInputHandler.type == SDL_QUIT) {
 			//i put (==) here instead of (=).  Litteraly the first time i've done this...
-			gGameState = STOPPED;  
+			gGameState = STOPPED;
 		}
 	}
 }
 
 //free textures and other media
-void closeMedia() 
+void closeMedia()
 {
 
 }
