@@ -77,3 +77,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+SDL_2_TEST_GAME/SDL_2_TEST_GAME/Debug/vc140.pdb
+*.idb

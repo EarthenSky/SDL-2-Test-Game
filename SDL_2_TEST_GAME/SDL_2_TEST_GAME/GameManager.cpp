@@ -1,9 +1,4 @@
-#include <SDL.h>
-#include <stdio.h>  //why?
-#include <string>  //incase I need strings.
-
-void GameLoop(SDL_Renderer *renderer);
-void finalClose();
+#include "GameManager.h"
 
 const int SCREEN_HEIGHT = 600;
 const int SCREEN_WIDTH = 600;
@@ -35,7 +30,7 @@ int main(int argc, char* args[])
 
 	SDL_SetRenderDrawColor(gRenderer, 0, 24, 78, 0);  //sets the render color to white.
 
-	GameLoop(gRenderer);
+	startGameLoop();  //starts the main loop
 
 	finalClose();
 	return 0;

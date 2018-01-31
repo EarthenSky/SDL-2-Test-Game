@@ -1,9 +1,4 @@
-#include <SDL.h>
-#include <stdio.h>
-
-void RenderAssets(SDL_Renderer *renderer);
-void HandleInput();
-void closeMedia();
+#include "GameLoop.h"
 
 SDL_Event gInputHandler;  //handles different types of input
 
@@ -12,15 +7,17 @@ const int RUNNING = 1;
 const int PAUSED = 2;
 int gGameState = RUNNING;
 
-//SDL_Renderer *gRenderer = NULL;  //not og gRenderer
-//have a start game loop function and an update function
+void startGameLoop()
+{
+	update();
+}
 
-void GameLoop(SDL_Renderer *renderer)
+void update()
 {
 	//main GameLoop:
 	while (gGameState != STOPPED) {
 		if (gGameState == RUNNING) {
-			RenderAssets(renderer);  //renders textures.
+			renderAssets();  //renders textures.
 
 			//regular game code here
 		}
@@ -28,7 +25,7 @@ void GameLoop(SDL_Renderer *renderer)
 			//menu code here
 		}
 
-		HandleInput();  //also handles keyboard and mouse input.
+		handleInput();  //also handles keyboard and mouse input.
 
 		//debug code here
 	}
@@ -36,22 +33,21 @@ void GameLoop(SDL_Renderer *renderer)
 	closeMedia();
 }
 
-void RenderAssets(SDL_Renderer *renderer)
+void renderAssets()
 {
 	//clear screen
-	SDL_RenderClear(renderer);
+	SDL_RenderClear(gRenderer);
 
 	//render stuff here
 
 	//update screen
-	SDL_RenderPresent(renderer);
+	SDL_RenderPresent(gRenderer);
 }
 
-void HandleInput()
+void handleInput()
 {
 	while (SDL_PollEvent(&gInputHandler) != 0) {
 		if (gInputHandler.type == SDL_QUIT) {
-			//i put (==) here instead of (=).  Litteraly the first time i've done this...
 			gGameState = STOPPED;
 		}
 	}
