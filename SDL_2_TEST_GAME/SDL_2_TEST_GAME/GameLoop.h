@@ -11,4 +11,6 @@ void renderAssets();
 void handleInput();
 void closeMedia();
 
+#include "Player.h"
+
 #endif 

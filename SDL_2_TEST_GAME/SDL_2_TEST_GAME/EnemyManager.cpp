@@ -1,0 +1,1 @@
+//enemy manager (maybe not a class?)
