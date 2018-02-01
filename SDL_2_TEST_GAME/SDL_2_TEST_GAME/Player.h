@@ -1,5 +1,6 @@
 #include <SDL.h>
 #include <string>
+#include <cmath>
 
 SDL_Texture *loadTexture(SDL_Renderer *renderer, std::string path);
 
@@ -9,7 +10,7 @@ class Player {
 public:
 	int xPos, yPos;  //position
 	int xVel, yVel;  //velocity
-	double rotation;
+	double rotation = 0;
 
 	SDL_Texture *texture = NULL;
 

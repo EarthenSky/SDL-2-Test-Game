@@ -1,7 +1,7 @@
 #include "GameManager.h"
 
-const int SCREEN_HEIGHT = 600;
-const int SCREEN_WIDTH = 600;
+const int SCREEN_HEIGHT = 640;
+const int SCREEN_WIDTH = 640;
 
 SDL_Window *gWindow = NULL;  //null pointer is better than garbage pointer
 SDL_Renderer *gRenderer = NULL;  //NULL = 0 in most compilers
