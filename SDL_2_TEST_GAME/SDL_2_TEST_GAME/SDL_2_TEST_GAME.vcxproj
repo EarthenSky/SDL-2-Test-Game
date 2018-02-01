@@ -69,8 +69,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Gabe\Desktop\SDL2-devel-2.0.7-VC\SDL2-2.0.7\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Gabe\Desktop\SDL2-devel-2.0.7-VC\SDL2-2.0.7\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\_Programming_Dev\SDL\SDL2-2.0.7\include;C:\Users\Gabe\Desktop\SDL2-devel-2.0.7-VC\SDL2-2.0.7\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\_Programming_Dev\SDL\SDL2-2.0.7\lib\x86;C:\Users\Gabe\Desktop\SDL2-devel-2.0.7-VC\SDL2-2.0.7\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

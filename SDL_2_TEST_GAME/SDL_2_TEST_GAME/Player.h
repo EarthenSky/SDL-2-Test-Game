@@ -1,4 +1,5 @@
 #include <SDL.h>
+#include <string>
 
 class Player {
 	int xPos, yPos;  //position
