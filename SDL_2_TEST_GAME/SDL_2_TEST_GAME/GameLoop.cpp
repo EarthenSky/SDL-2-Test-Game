@@ -8,11 +8,13 @@ int gGameState = RUNNING;
 SDL_Event gInputHandler;  //Event handler for input
 
 Player gPlayer;  //holds player info
+Scene gScene;  //holds scene info
 
 void gameLoopInit()
 {
 	//init classes here
 	gPlayer.init(gRenderer, "Char.bmp", 160, 160);
+	gScene.init(gRenderer, "Arena.bmp");
 
 	update();
 	closeMedia();  //this is called when game is closed
@@ -44,7 +46,8 @@ void renderAssets()
 	//clear screen
 	SDL_RenderClear(gRenderer);
 
-	//render stuff here
+	//render stuff here (first rendered goes to the bottom)
+	gScene.render(gRenderer);
 	gPlayer.render(gRenderer);
 
 	//update screen

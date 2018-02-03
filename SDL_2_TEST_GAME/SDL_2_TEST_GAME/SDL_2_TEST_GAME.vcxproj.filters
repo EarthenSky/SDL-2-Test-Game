@@ -39,6 +39,9 @@
     <ClCompile Include="LoadTexture.cpp">
       <Filter>Source Files\Systems</Filter>
     </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManger.h">
@@ -56,9 +59,18 @@
     <ClInclude Include="Enemy.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Source Files\Systems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Char.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Arena.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

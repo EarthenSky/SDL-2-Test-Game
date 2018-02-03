@@ -1,5 +1,6 @@
-﻿  Player.cpp
-c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\player.cpp(23): warning C4474: 'printf' : too many arguments passed for format string
-  c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\player.cpp(23): note: placeholders and their parameters expect 0 variadic arguments, but 2 were provided
-  SDL_2_TEST_GAME.vcxproj -> C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.exe
-  SDL_2_TEST_GAME.vcxproj -> C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.pdb (Partial PDB)
+﻿  Scene.cpp
+c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\scene.cpp(47): error C2440: 'return': cannot convert from 'int' to 'Point'
+  c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\scene.cpp(47): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+  GameLoop.cpp
+c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\gameloop.cpp(30): error C2660: 'Player::update': function does not take 0 arguments
+  Generating Code...

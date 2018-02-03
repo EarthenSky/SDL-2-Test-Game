@@ -1,12 +1,12 @@
 #include "Player.h"
 
-int mousePosX=0;
-int mousePosY=0;
-
 void Player::init(SDL_Renderer *renderer, std::string path, int xPosition, int yPosition) {
 	xPos = xPosition;
 	yPos = yPosition;
 	texture = loadTexture(renderer, path);
+	texWidth = 80;
+	texHeight = 80;
+	radius = texWidth / 2;
 }
 
 void Player::freeAssets()
@@ -16,35 +16,34 @@ void Player::freeAssets()
 	texture = NULL;
 }
 
-//use middle for angle and not upside down
-
+int mousePosX = 0;
+int mousePosY = 0;
 double findPlayerAngle(int yPos, int xPos) 
 {
 	double angle1 = std::atan2(20000 - yPos, 0);
 	double angle2 = std::atan2(mousePosY - yPos, mousePosX - xPos);
 	printf("", (angle1 - angle2) * 180 / 3.141592, "|||");
-	return (angle1 - angle2) * 180 / 3.141592;
+	return -((angle1 - angle2) * 180 / 3.141592) + 180;
 }
 
-void Player::update()
+void Player::update(Point *ptPush)
 {
+	//xPos += 
+
 	//move player based on velocity
 	xPos += xVel;
 	yPos += yVel;
 
-	//xPos = mousePosX;
-	//yPos = mousePosY;
-
-	rotation = findPlayerAngle(yPos, xPos);
+	rotation = findPlayerAngle(yPos + texHeight / 2, xPos + texWidth / 2);
 }
 
 void Player::render(SDL_Renderer *renderer) 
 {
 	//cuts out a single pane of the player animation and sets it to the players position.
-	SDL_Rect playerRect = { xPos, yPos, 160, 160 };
+	SDL_Rect placementRect = { xPos, yPos, texWidth, texHeight };
 	//SDL_Rect cutRect = { 0, 16, 16, 16 };
 
-	SDL_RenderCopyEx(renderer, texture, NULL, &playerRect, rotation, NULL, SDL_FLIP_NONE);
+	SDL_RenderCopyEx(renderer, texture, NULL, &placementRect, rotation, NULL, SDL_FLIP_NONE);
 }
 
 /*Movement Code Under*/

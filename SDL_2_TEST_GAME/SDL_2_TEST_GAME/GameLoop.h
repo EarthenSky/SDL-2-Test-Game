@@ -12,5 +12,6 @@ void handleInput();
 void closeMedia();
 
 #include "Player.h"
+#include "Scene.h"
 
 #endif 

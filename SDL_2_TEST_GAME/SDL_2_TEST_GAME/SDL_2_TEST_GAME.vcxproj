@@ -123,6 +123,7 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="LoadTexture.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -131,8 +132,11 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameManger.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="Scene.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Arena.bmp" />
     <Image Include="Char.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
