@@ -3,7 +3,7 @@
 #include <cmath>
 #include "Point.h"
 
-//TODO: include player attacks to checkInput().
+//TODO: add player attacks to checkInput().
 
 SDL_Texture *loadTexture(SDL_Renderer *renderer, std::string path);
 
@@ -11,19 +11,20 @@ extern SDL_Event gInputHandler;
 
 class Player {
 public:
-	int xPos, yPos;  //position
-	int xVel, yVel;  //velocity
+	Point position;  //position
+	Point velocity;  //velocity
 	double rotation = 0;
 
 	int radius;
-	//Point *ptPush;
 
 	int texWidth, texHeight;
 	SDL_Texture *texture = NULL;
 
-	void init(SDL_Renderer *renderer, std::string path, int xPosition, int yPosition);
+	void init(SDL_Renderer *renderer, std::string path, Point pos);
 	void freeAssets();
-	void update(Point *ptPush);  //for physics things.  //TODO: framerate independence.
+	//for physics things.  //TODO: framerate independence.
+	void update(Point collsionOffset);
 	void render(SDL_Renderer *renderer);
 	void checkInput();  //this is a reference
 };
+

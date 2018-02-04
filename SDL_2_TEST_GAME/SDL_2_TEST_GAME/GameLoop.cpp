@@ -13,7 +13,7 @@ Scene gScene;  //holds scene info
 void gameLoopInit()
 {
 	//init classes here
-	gPlayer.init(gRenderer, "Char.bmp", 160, 160);
+	gPlayer.init(gRenderer, "Char.bmp", {160, 160});
 	gScene.init(gRenderer, "Arena.bmp");
 
 	update();
@@ -27,7 +27,8 @@ void update()
 		if (gGameState == RUNNING) {
 			renderAssets();  //renders textures.
 
-			gPlayer.update();  //updates player math
+			//updates player math and collision (collision function sent here.)
+			gPlayer.update(gScene.checkArenaCollision(gPlayer.position, gPlayer.texHeight / 2));
 
 			//regular game code here
 		}

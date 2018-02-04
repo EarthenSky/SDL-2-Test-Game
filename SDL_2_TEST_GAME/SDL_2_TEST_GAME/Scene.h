@@ -15,5 +15,5 @@ public:
 	void freeAssets();
 	void render(SDL_Renderer *renderer);
 
-	Point checkArenaCollision(int x, int y, int radius);
+	Point checkArenaCollision(Point pos, int radius);
 };

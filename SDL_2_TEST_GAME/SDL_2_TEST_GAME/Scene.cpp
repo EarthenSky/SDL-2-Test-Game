@@ -27,22 +27,23 @@ int sceneTop = 20;
 int sceneLeft = 620;
 int sceneBottom = 620;
 int sceneRight = 20;
-Point Scene::checkArenaCollision(int x, int y, int radius)
+Point Scene::checkArenaCollision(Point pos, int radius)
 {
-	//Point out;
+	//TODO: this
+	Point out = {0, 0};
 
-	if (x + radius > sceneRight) {
+	if (pos.x + radius > sceneRight) {
 		printf("R");
 	}
-	else if (x - radius < sceneLeft) {
+	else if (pos.x - radius < sceneLeft) {
 		printf("L");
 	}
-	else if (y + radius > sceneBottom) {
+	else if (pos.y + radius > sceneBottom) {
 		printf("B");
 	}
-	else if (y - radius < sceneTop) {
+	else if (pos.y - radius < sceneTop) {
 		printf("T");
 	}
 
-	return 0;
+	return out;
 }
