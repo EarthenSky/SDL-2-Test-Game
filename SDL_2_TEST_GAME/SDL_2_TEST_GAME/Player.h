@@ -22,8 +22,11 @@ public:
 
 	void init(SDL_Renderer *renderer, std::string path, Point pos);
 	void freeAssets();
+
 	//for physics things.  //TODO: framerate independence.
-	void update(Point collsionOffset);
+	void update();
+	void Player::collision(Point collsionOffset);
+
 	void render(SDL_Renderer *renderer);
 	void checkInput();  //this is a reference
 };

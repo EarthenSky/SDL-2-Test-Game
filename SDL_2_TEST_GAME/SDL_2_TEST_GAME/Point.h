@@ -5,9 +5,10 @@
 struct Point {
 	int x, y;
 
-	Point operator+(const Point &pnt) const;
+	//Point operator+(const Point &pnt) const;
 };
 
+/*
 Point Point::operator+ (const Point &pnt) const
 {
 	Point out;
@@ -16,6 +17,6 @@ Point Point::operator+ (const Point &pnt) const
 	out.y = (*this).y + pnt.y;
 
 	return out;
-}
+}*/
 
 #endif

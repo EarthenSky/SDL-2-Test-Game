@@ -26,18 +26,20 @@ double findPlayerAngle(int yPos, int xPos)
 }
 
 // Player is moves by velocity then checks collision.
-void Player::update(Point collsionOffset)
+void Player::update()
 {
 	//move player based on velocity
 	position.x += velocity.x;
 	position.y += velocity.y;
 
-	//radius is equal to half of player height or width
-
-	position.x =+ collsionOffset.x;
-	position.y =+ collsionOffset.y;
-
 	rotation = findPlayerAngle(position.y + texHeight / 2, position.x + texWidth / 2);
+}
+
+void Player::collision(Point collsionOffset)
+{
+	//radius is equal to half of player height or width
+	position.x -= collsionOffset.x;
+	position.y -= collsionOffset.y;
 }
 
 void Player::render(SDL_Renderer *renderer) 

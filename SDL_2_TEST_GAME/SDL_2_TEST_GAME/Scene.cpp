@@ -24,25 +24,30 @@ void Scene::render(SDL_Renderer *renderer)
 }
 
 int sceneTop = 20;
-int sceneLeft = 620;
+int sceneLeft = 20;
 int sceneBottom = 620;
-int sceneRight = 20;
+int sceneRight = 620;
 Point Scene::checkArenaCollision(Point pos, int radius)
 {
 	//TODO: this
 	Point out = {0, 0};
 
-	if (pos.x + radius > sceneRight) {
+	if (pos.x + 2 * radius > sceneRight) {
 		printf("R");
+		out.x = (pos.x + 2 * radius) - sceneRight;
 	}
-	else if (pos.x - radius < sceneLeft) {
+	else if (pos.x < sceneLeft) {
 		printf("L");
+		out.x = pos.x - sceneLeft;
 	}
-	else if (pos.y + radius > sceneBottom) {
+	
+	if (pos.y + 2 * radius> sceneBottom) {
 		printf("B");
+		out.y = (pos.y + 2 * radius) - sceneBottom;
 	}
-	else if (pos.y - radius < sceneTop) {
+	else if (pos.y < sceneTop) {
 		printf("T");
+		out.y = pos.y - sceneTop;
 	}
 
 	return out;

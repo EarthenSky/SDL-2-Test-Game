@@ -25,12 +25,14 @@ void update()
 	//main game loop
 	while (gGameState != STOPPED) {
 		if (gGameState == RUNNING) {
-			renderAssets();  //renders textures.
-
-			//updates player math and collision (collision function sent here.)
-			gPlayer.update(gScene.checkArenaCollision(gPlayer.position, gPlayer.texHeight / 2));
-
+			
 			//regular game code here
+			
+			//updates player math and collision (collision function sent here.)
+			gPlayer.update();
+			gPlayer.collision(gScene.checkArenaCollision(gPlayer.position, gPlayer.texHeight / 2));
+
+			renderAssets();  //renders textures.
 		}
 		else if (gGameState == PAUSED) {
 			//menu code here
