@@ -65,6 +65,9 @@
     <ClInclude Include="Point.h">
       <Filter>Source Files\Systems</Filter>
     </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
