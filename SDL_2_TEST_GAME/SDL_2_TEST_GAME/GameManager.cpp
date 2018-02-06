@@ -1,7 +1,7 @@
 #include "GameManager.h"
 
-const int SCREEN_HEIGHT = 640;
-const int SCREEN_WIDTH = 640;
+const int SCREEN_HEIGHT = 675;
+const int SCREEN_WIDTH = 1200;
 
 SDL_Window *gWindow = NULL;  //null pointer is better than garbage pointer
 SDL_Renderer *gRenderer = NULL;  //NULL = 0 in most compilers
@@ -32,7 +32,7 @@ void initSdl()
 int main(int argc, char* args[]) 
 {
 	printf("staatou! \n");
-
+	aaaaaaaaaaaa
 	initSdl();  //initialized SDL systems
 
 	gameLoopInit();  //starts the main loop

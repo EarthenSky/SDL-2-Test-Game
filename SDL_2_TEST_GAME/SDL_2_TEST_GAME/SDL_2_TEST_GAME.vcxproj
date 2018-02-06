@@ -136,12 +136,12 @@
     <ClInclude Include="Scene.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Arena.bmp" />
-    <Image Include="Char.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="ClassDiagram.cd" />
     <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Images\Arena.bmp" />
+    <Image Include="Images\Char.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

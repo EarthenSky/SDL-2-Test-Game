@@ -1,8 +1,7 @@
-﻿  Scene.cpp
+﻿  GameManager.cpp
   GameLoop.cpp
   Generating Code...
   Skipping... (no relevant changes detected)
   LoadTexture.cpp
-  GameManager.cpp
-  SDL_2_TEST_GAME.vcxproj -> C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.exe
-  SDL_2_TEST_GAME.vcxproj -> C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.pdb (Partial PDB)
+  SDL_2_TEST_GAME.vcxproj -> C:\Users\gabeg\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.exe
+  SDL_2_TEST_GAME.vcxproj -> C:\Users\gabeg\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.pdb (Partial PDB)

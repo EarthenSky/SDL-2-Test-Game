@@ -13,8 +13,8 @@ Scene gScene;  //holds scene info
 void gameLoopInit()
 {
 	//init classes here
-	gPlayer.init(gRenderer, "Char.bmp", {160, 160});
-	gScene.init(gRenderer, "Arena.bmp");
+	gPlayer.init(gRenderer, "Images/Char.bmp", {160, 160});
+	gScene.init(gRenderer, "Images/Arena.bmp");
 
 	update();
 	closeMedia();  //this is called when game is closed
@@ -71,5 +71,6 @@ void handleInput()
 //free textures and other media
 void closeMedia()
 {
-
+	gPlayer.freeAssets();
+	gScene.freeAssets();
 }
