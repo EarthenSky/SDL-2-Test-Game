@@ -32,7 +32,7 @@ void initSdl()
 int main(int argc, char* args[]) 
 {
 	printf("staatou! \n");
-	aaaaaaaaaaaa
+
 	initSdl();  //initialized SDL systems
 
 	gameLoopInit();  //starts the main loop

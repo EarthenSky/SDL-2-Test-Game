@@ -137,10 +137,6 @@
     <ClInclude Include="UI.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="Images\Arena.bmp" />
     <Image Include="Images\Char.bmp" />
   </ItemGroup>
