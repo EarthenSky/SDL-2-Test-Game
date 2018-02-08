@@ -1,18 +1,11 @@
 #include "Player.h"
 
 void Player::init(SDL_Renderer *renderer, std::string path, Point pos) {
-	position = pos;
-	texture = loadTexture(renderer, path);
-	texWidth = 80;
-	texHeight = 80;
-	radius = texWidth / 2;
-}
-
-void Player::freeAssets()
-{
-	//Free loaded image
-	SDL_DestroyTexture(texture);
-	texture = NULL;
+	m_position = pos;
+	m_texture = loadTexture(renderer, path);
+	m_texWidth = 80;
+	m_texHeight = 80;
+	m_radius = m_texWidth / 2;
 }
 
 int mousePosX = 0;
@@ -29,26 +22,26 @@ double findPlayerAngle(int yPos, int xPos)
 void Player::update()
 {
 	//move player based on velocity
-	position.x += velocity.x;
-	position.y += velocity.y;
+	m_position.x += m_velocity.x;
+	m_position.y += m_velocity.y;
 
-	rotation = findPlayerAngle(position.y + texHeight / 2, position.x + texWidth / 2);
+	m_rotation = findPlayerAngle(m_position.y + m_texHeight / 2, m_position.x + m_texWidth / 2);
 }
 
 void Player::collision(Point collsionOffset)
 {
 	//radius is equal to half of player height or width
-	position.x -= collsionOffset.x;
-	position.y -= collsionOffset.y;
+	m_position.x -= collsionOffset.x;
+	m_position.y -= collsionOffset.y;
 }
 
 void Player::render(SDL_Renderer *renderer) 
 {
 	//cuts out a single pane of the player animation and sets it to the players position.
-	SDL_Rect placementRect = { position.x, position.y, texWidth, texHeight };
+	SDL_Rect placementRect = { m_position.x, m_position.y, m_texWidth, m_texHeight };
 	//SDL_Rect cutRect = { 0, 16, 16, 16 };
 
-	SDL_RenderCopyEx(renderer, texture, NULL, &placementRect, rotation, NULL, SDL_FLIP_NONE);
+	SDL_RenderCopyEx(renderer, m_texture, NULL, &placementRect, m_rotation, NULL, SDL_FLIP_NONE);
 }
 
 /*Movement Code Under*/
@@ -96,63 +89,63 @@ void Player::checkInput()
 		if (gInputHandler.key.keysym.sym == SDLK_w) {
 			wKeyDown = false;
 			if (keySum() == 0) {
-				velocity.x = 0;
-				velocity.y = 0;
+				m_velocity.x = 0;
+				m_velocity.y = 0;
 			}
 			else {
-				pressedKeyMoves(velocity.x, velocity.y);
+				pressedKeyMoves(m_velocity.x, m_velocity.y);
 			}
 		}
 		else if (gInputHandler.key.keysym.sym == SDLK_a) {
 			aKeyDown = false;
 			if (keySum() == 0) {
-				velocity.x = 0;
-				velocity.y = 0;
+				m_velocity.x = 0;
+				m_velocity.y = 0;
 			}
 			else {
-				pressedKeyMoves(velocity.x, velocity.y);
+				pressedKeyMoves(m_velocity.x, m_velocity.y);
 			}
 		}
 		else if (gInputHandler.key.keysym.sym == SDLK_s) {
 			sKeyDown = false;
 			if (keySum() == 0) {
-				velocity.x = 0;
-				velocity.y = 0;
+				m_velocity.x = 0;
+				m_velocity.y = 0;
 			}
 			else {
-				pressedKeyMoves(velocity.x, velocity.y);
+				pressedKeyMoves(m_velocity.x, m_velocity.y);
 			}
 		}
 		else if (gInputHandler.key.keysym.sym == SDLK_d) {
 			dKeyDown = false;
 			if (keySum() == 0) {
-				velocity.x = 0;
-				velocity.y = 0;
+				m_velocity.x = 0;
+				m_velocity.y = 0;
 			}
 			else {
-				pressedKeyMoves(velocity.x, velocity.y);
+				pressedKeyMoves(m_velocity.x, m_velocity.y);
 			}
 		}
 	}
 	else if (gInputHandler.type == SDL_KEYDOWN) {
 		if (gInputHandler.key.keysym.sym == SDLK_w) {
-			velocity.x = 0;
-			velocity.y = -4;
+			m_velocity.x = 0;
+			m_velocity.y = -4;
 			wKeyDown = true;
 		}
 		else if (gInputHandler.key.keysym.sym == SDLK_a) {
-			velocity.x = -4;
-			velocity.y = 0;
+			m_velocity.x = -4;
+			m_velocity.y = 0;
 			aKeyDown = true;
 		}
 		else if (gInputHandler.key.keysym.sym == SDLK_s) {
-			velocity.x = 0;
-			velocity.y = 4;
+			m_velocity.x = 0;
+			m_velocity.y = 4;
 			sKeyDown = true;
 		}
 		else if (gInputHandler.key.keysym.sym == SDLK_d) {
-			velocity.x = 4;
-			velocity.y = 0;
+			m_velocity.x = 4;
+			m_velocity.y = 0;
 			dKeyDown = true;
 		}
 	}
@@ -160,4 +153,12 @@ void Player::checkInput()
 		mousePosX = gInputHandler.motion.x;
 		mousePosY = gInputHandler.motion.y;
 	}
+}
+
+//cleans up after the class
+Player::~Player() 
+{
+	//Free loaded image
+	SDL_DestroyTexture(m_texture);
+	m_texture = NULL;
 }

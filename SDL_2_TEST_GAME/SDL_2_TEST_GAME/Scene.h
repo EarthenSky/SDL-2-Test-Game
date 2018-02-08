@@ -12,8 +12,9 @@ public:
 	SDL_Texture *texture = NULL;
 
 	void init(SDL_Renderer *renderer, std::string path);
-	void freeAssets();
 	void render(SDL_Renderer *renderer);
 
 	Point checkArenaCollision(Point pos, int radius);
+
+	~Scene();
 };

@@ -17,8 +17,7 @@ void gameLoopInit()
 	gScene.init(gRenderer, "Images/Arena.bmp");
 
 	update();
-	closeMedia();  //this is called when game is closed
-}
+}  //Class constructors are called here
 
 void update()
 {
@@ -30,7 +29,7 @@ void update()
 			
 			//updates player math and collision (collision function sent here.)
 			gPlayer.update();
-			gPlayer.collision(gScene.checkArenaCollision(gPlayer.position, gPlayer.texHeight / 2));
+			gPlayer.collision(gScene.checkArenaCollision(gPlayer.m_position, gPlayer.m_texHeight / 2));
 
 			renderAssets();  //renders textures.
 		}
@@ -66,11 +65,4 @@ void handleInput()
 
 		gPlayer.checkInput();
 	}
-}
-
-//free textures and other media
-void closeMedia()
-{
-	gPlayer.freeAssets();
-	gScene.freeAssets();
 }

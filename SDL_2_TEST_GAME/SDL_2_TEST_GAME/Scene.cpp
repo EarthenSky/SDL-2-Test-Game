@@ -9,13 +9,6 @@ void Scene::init(SDL_Renderer *renderer, std::string path)
 	texHeight = 600;
 }
 
-void Scene::freeAssets() 
-{
-	//Free loaded image
-	SDL_DestroyTexture(texture);
-	texture = NULL;
-}
-
 void Scene::render(SDL_Renderer *renderer) 
 {
 	//Places the texture in placementRect
@@ -51,4 +44,11 @@ Point Scene::checkArenaCollision(Point pos, int radius)
 	}
 
 	return out;
+}
+
+Scene::~Scene() 
+{
+	//Free loaded image
+	SDL_DestroyTexture(texture);
+	texture = NULL;
 }

@@ -11,17 +11,16 @@ extern SDL_Event gInputHandler;
 
 class Player {
 public:
-	Point position;  //position
-	Point velocity;  //velocity
-	double rotation = 0;
+	Point m_position;  //position
+	Point m_velocity;  //velocity
+	double m_rotation = 0;
 
-	int radius;
+	int m_radius;
 
-	int texWidth, texHeight;
-	SDL_Texture *texture = NULL;
+	int m_texWidth, m_texHeight;
+	SDL_Texture *m_texture = NULL;
 
 	void init(SDL_Renderer *renderer, std::string path, Point pos);
-	void freeAssets();
 
 	//for physics things.  //TODO: framerate independence.
 	void update();
@@ -29,5 +28,7 @@ public:
 
 	void render(SDL_Renderer *renderer);
 	void checkInput();  //this is a reference
+
+	~Player();
 };
 
