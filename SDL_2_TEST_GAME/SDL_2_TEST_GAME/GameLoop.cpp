@@ -52,6 +52,8 @@ void renderAssets()
 	gScene.render(gRenderer);
 	gPlayer.render(gRenderer);
 
+	//UI render (after everything else)
+
 	//update screen
 	SDL_RenderPresent(gRenderer);
 }
