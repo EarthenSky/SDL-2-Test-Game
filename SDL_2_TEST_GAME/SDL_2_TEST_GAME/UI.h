@@ -4,5 +4,8 @@
 #include "UIElement.h"
 
 void addUIElement(UIElement &ui);
+
 void renderUI();
+void updateUI();
+
 void freeUI();

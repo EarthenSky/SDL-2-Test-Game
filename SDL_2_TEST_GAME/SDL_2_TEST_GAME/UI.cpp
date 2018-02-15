@@ -1,5 +1,5 @@
 #include "UI.h"
-//class w/ha:
+//class ha:
 //renders and does ui maths for things like hp or points.
 //not a class
 //holds ui items

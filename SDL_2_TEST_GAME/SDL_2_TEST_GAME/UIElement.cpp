@@ -1,21 +1,23 @@
 #include "UIElement.h"
 
-UIElement::UIElement(SDL_Renderer *renderer, std::string path, Point pos)
+// This function creates an object and adds it to a list
+void UIElement::AddUIObject(SDL_Renderer *renderer, std::string path, Point pos, Point texSize)
 {
-	m_position = pos;
-	m_texture = loadTexture(renderer, path);
-	m_texWidth = 80;
-	m_texHeight = 80;
+	// Adds an object to the list.
+	Object object(renderer, path, pos, texSize);
+	m_objList.push_back(object);
 }
 
+// This function renders the child objects.s
 void UIElement::render(SDL_Renderer *renderer)
 {
-	//Places the texture in placementRect
-	SDL_Rect placementRect = { m_position.x, m_position.y, m_texWidth, m_texHeight };
-	SDL_RenderCopy(renderer, m_texture, NULL, &placementRect);
+	// Iterates over all childs objects and calls their render function.
+	for (Object obj : m_objList) {
+		obj.Render(renderer);
+	}
 }
 
 void UIElement::update()
 {
-	//Do Nothing
+	//Do nothing...
 }

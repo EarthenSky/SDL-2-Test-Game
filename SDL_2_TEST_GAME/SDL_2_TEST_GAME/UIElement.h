@@ -3,20 +3,22 @@
 
 #include <SDL.h>
 #include <string>
+#include <list>
 #include "Point.h"
+#include "Object.h"
 
 SDL_Texture *loadTexture(SDL_Renderer *renderer, std::string path);
 
 class UIElement {
 public:
-	UIElement(SDL_Renderer *renderer, std::string path, Point pos);
+	virtual void update();  //not a pure virtual function
 
-	virtual void update();  //pure virtual function
+	Point m_position;  //position of the UIElement (the object carrier)
 
-	Point m_position;  //position
-	int m_texWidth, m_texHeight;
+	std::list<Object> m_objList;
 
-	SDL_Texture *m_texture = NULL;
+	void AddUIObject(SDL_Renderer *renderer, std::string path, Point pos, Point texSize);
+
 	void render(SDL_Renderer *renderer);
 };
 

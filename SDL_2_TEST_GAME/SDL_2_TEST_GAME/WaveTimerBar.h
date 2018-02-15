@@ -2,8 +2,9 @@
 
 class WaveTimerBar : public UIElement {
 public:
-	WaveTimerBar() : UIElement(SDL_Renderer *renderer, std::string path, Point pos);
+	WaveTimerBar(SDL_Renderer *renderer, std::string path, Point pos, Point texSize);
 
 	virtual void update();
 
+	//virtual render function
 };

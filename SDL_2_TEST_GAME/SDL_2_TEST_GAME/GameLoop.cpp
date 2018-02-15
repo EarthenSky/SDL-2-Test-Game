@@ -16,16 +16,17 @@ void gameLoopInit()
 	gPlayer.init(gRenderer, "Images/Char.bmp", {160, 160});
 	gScene.init(gRenderer, "Images/Arena.bmp");
 
-	update();
+	updateLoop();
 }  //Class constructors are called here
 
-void update()
+void updateLoop()
 {
 	//main game loop
 	while (gGameState != STOPPED) {
 		if (gGameState == RUNNING) {
-			
-			//regular game code here
+			updateUI();  //Update all ui functions
+
+			//regular game code goes here
 			
 			//updates player math and collision (collision function sent here.)
 			gPlayer.update();
@@ -50,9 +51,11 @@ void renderAssets()
 
 	//render stuff here (first rendered goes to the bottom)
 	gScene.render(gRenderer);
+	//enemy manager render call here
 	gPlayer.render(gRenderer);
 
-	//UI render (after everything else)
+	// Render the UI above all other assets
+	renderUI();
 
 	//update screen
 	SDL_RenderPresent(gRenderer);

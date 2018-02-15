@@ -122,19 +122,26 @@
     <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="LoadTexture.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="UI.cpp" />
+    <ClCompile Include="UIElement.cpp" />
+    <ClCompile Include="WaveBar.cpp" />
+    <ClCompile Include="WaveTimerBar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameLoop.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameManger.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="UI.h" />
+    <ClInclude Include="UIElement.h" />
+    <ClInclude Include="WaveTimerBar.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Images\Arena.bmp" />
