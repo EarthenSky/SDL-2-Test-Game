@@ -6,7 +6,7 @@
 
 extern SDL_Renderer *gRenderer;
 
-void update();
+void updateLoop();
 void renderAssets();
 void handleInput();
 
