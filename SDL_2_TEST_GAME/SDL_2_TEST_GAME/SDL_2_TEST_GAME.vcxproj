@@ -145,6 +145,8 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Images\Arena.bmp" />
+    <Image Include="Images\BarBack.bmp" />
+    <Image Include="Images\BarFront.bmp" />
     <Image Include="Images\Char.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -6,9 +6,11 @@
 
 std::list<UIElement> listUIElements;
 
-void addUIElement(UIElement &ui)
+//Initialize UI Objects here
+void initUI(SDL_Renderer *renderer)
 {
-	listUIElements.push_back(ui);
+	WaveTimerBar uiWaveBar(renderer);
+	listUIElements.push_back(uiWaveBar);
 }
 
 void updateUI()
@@ -18,9 +20,11 @@ void updateUI()
 	}
 }
 
-void renderUI() 
+void renderUI(SDL_Renderer *renderer)
 {
-
+	for (UIElement ui : listUIElements) {
+		ui.render(renderer);
+	}
 }
 
 void freeUI()

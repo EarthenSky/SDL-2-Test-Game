@@ -26,7 +26,7 @@ SDL_Texture* loadTexture(SDL_Renderer *renderer, std::string path)
 		SDL_FreeSurface(loadedSurface);
 	}
 
-	printf("created tex");
+	printf("created tex \n");
 
 	return newTexture;
 }

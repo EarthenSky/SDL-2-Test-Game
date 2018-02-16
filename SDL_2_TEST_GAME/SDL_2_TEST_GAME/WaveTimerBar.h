@@ -1,10 +1,14 @@
+#ifndef WAVETIMERBAR
+#define WAVETIMERBAR
+
 #include "UIElement.h"
 
 class WaveTimerBar : public UIElement {
 public:
-	WaveTimerBar(SDL_Renderer *renderer, std::string path, Point pos, Point texSize);
+	// The render objects are created here.
+	WaveTimerBar(SDL_Renderer *renderer);
 
-	virtual void update();
-
-	//virtual render function
+	virtual void update();  //This is the math function
 };
+
+#endif // !WAVETIMERBAR

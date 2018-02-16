@@ -5,19 +5,25 @@ const int RUNNING = 1;
 const int PAUSED = 2;
 int gGameState = RUNNING;
 
-SDL_Event gInputHandler;  //Event handler for input
+SDL_Event gInputHandler;  // Event handler for input.
 
-Player gPlayer;  //holds player info
-Scene gScene;  //holds scene info
+Player gPlayer;  // Holds player info.
+Scene gScene;  // Holds scene info.
+
+SDL_Texture *gTexture;
 
 void gameLoopInit()
 {
-	//init classes here
-	gPlayer.init(gRenderer, "Images/Char.bmp", {160, 160});
-	gScene.init(gRenderer, "Images/Arena.bmp");
+	// Init object classes here
+	gPlayer.init(gRenderer, "Images/BarBack.bmp", {160, 160});
+	gScene.init(gRenderer, "Images/BarFront.bmp");
+
+	gTexture = loadTexture(gRenderer, "Images/BarBack.bmp");
+
+	initUI(gRenderer);  // Init all UI objects.
 
 	updateLoop();
-}  //Class constructors are called here
+}  //Class destructors are called here
 
 void updateLoop()
 {
@@ -55,7 +61,7 @@ void renderAssets()
 	gPlayer.render(gRenderer);
 
 	// Render the UI above all other assets
-	renderUI();
+	renderUI(gRenderer);
 
 	//update screen
 	SDL_RenderPresent(gRenderer);

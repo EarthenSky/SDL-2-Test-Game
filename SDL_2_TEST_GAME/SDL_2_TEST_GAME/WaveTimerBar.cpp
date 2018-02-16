@@ -2,12 +2,16 @@
 
 void WaveTimerBar::update() 
 {
-	//do update stuff here
+	//do maths & timer stuff here
 }
 
-WaveTimerBar::WaveTimerBar(SDL_Renderer *renderer, std::string path, Point pos, Point texSize)
+WaveTimerBar::WaveTimerBar(SDL_Renderer *renderer)
 {
-	//Create the bar objects
-	
-	//UIElement.AddUIObject();
+	// Bar Back
+	std::string backPath = "Images/BarBack.bmp";
+	UIElement::AddUIObject(renderer, backPath, { 200, 200 }, { 100, 100 });
+
+	// Bar Front
+	std::string frontPath = "Images/BarFront.bmp";
+	UIElement::AddUIObject(renderer, frontPath, { 300, 200 }, { 100, 100 });
 }

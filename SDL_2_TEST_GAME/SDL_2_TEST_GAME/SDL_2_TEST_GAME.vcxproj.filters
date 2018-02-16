@@ -97,5 +97,11 @@
     <Image Include="Images\Arena.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Images\BarBack.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Images\BarFront.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

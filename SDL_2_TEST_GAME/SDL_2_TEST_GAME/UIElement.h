@@ -15,7 +15,7 @@ public:
 
 	Point m_position;  //position of the UIElement (the object carrier)
 
-	std::list<Object> m_objList;
+	std::list<Object> m_objList;  // Holds all of the texture objects
 
 	void AddUIObject(SDL_Renderer *renderer, std::string path, Point pos, Point texSize);
 
