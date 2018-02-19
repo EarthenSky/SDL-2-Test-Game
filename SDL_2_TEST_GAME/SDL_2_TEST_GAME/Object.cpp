@@ -1,9 +1,9 @@
 #include "Object.h"
 
-// This constructor loads a texture and maxes position and texture size values.
-Object::Object(SDL_Renderer *renderer, std::string path, Point pos, Point texSize)
+// This constructor loads a texture and makes position and texture size values.
+Object::Object(SDL_Texture *texture, Point pos, Point texSize)
 {
-	m_texture = loadTexture(renderer, path);
+	m_texture = texture;
 	m_pos = pos;
 	m_texSize = texSize;
 
@@ -15,7 +15,7 @@ void Object::Render(SDL_Renderer *renderer)
 {
 	//TEXTURE IS NOT BEING PASSED CORRECTLY.
 	SDL_Rect placementRect = { 50, 60, 300, 600 };
-	SDL_RenderCopy(gRenderer, gTexture, NULL, &placementRect);
+	SDL_RenderCopy(renderer, m_texture, NULL, &placementRect);
 }
 
 // This deconstructor frees the loaded image.

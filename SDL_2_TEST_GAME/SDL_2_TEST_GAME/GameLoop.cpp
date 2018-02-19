@@ -10,13 +10,13 @@ SDL_Event gInputHandler;  // Event handler for input.
 Player gPlayer;  // Holds player info.
 Scene gScene;  // Holds scene info.
 
-SDL_Texture *gTexture;
+SDL_Texture *gTexture = NULL;
 
 void gameLoopInit()
 {
 	// Init object classes here
-	gPlayer.init(gRenderer, "Images/BarBack.bmp", {160, 160});
-	gScene.init(gRenderer, "Images/BarFront.bmp");
+	gPlayer.init(gRenderer, "Images/Char.bmp", {160, 160});
+	gScene.init(gRenderer, "Images/Arena.bmp");
 
 	gTexture = loadTexture(gRenderer, "Images/BarBack.bmp");
 

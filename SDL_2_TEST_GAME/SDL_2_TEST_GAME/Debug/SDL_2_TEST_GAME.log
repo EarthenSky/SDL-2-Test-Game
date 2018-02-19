@@ -1,10 +1,9 @@
-﻿  Object.cpp
-  GameLoop.cpp
-  Generating Code...
-  Compiling...
-  WaveTimerBar.cpp
+﻿  WaveTimerBar.cpp
   UIElement.cpp
-  UI.cpp
   Generating Code...
+  Skipping... (no relevant changes detected)
+  UI.cpp
+  Object.cpp
+  GameLoop.cpp
   SDL_2_TEST_GAME.vcxproj -> C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.exe
   SDL_2_TEST_GAME.vcxproj -> C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.pdb (Partial PDB)

@@ -5,13 +5,31 @@ void WaveTimerBar::update()
 	//do maths & timer stuff here
 }
 
-WaveTimerBar::WaveTimerBar(SDL_Renderer *renderer)
+void WaveTimerBar::render(SDL_Renderer *renderer)
 {
-	// Bar Back
-	std::string backPath = "Images/BarBack.bmp";
-	UIElement::AddUIObject(renderer, backPath, { 200, 200 }, { 100, 100 });
+	UIElement::render(renderer);
 
-	// Bar Front
+	//for (Object obj : m_objList) {
+		//obj.Render(renderer);
+		//printf("0");
+	//}
+}
+
+void WaveTimerBar::init(SDL_Renderer *renderer)
+{
+	// Bar Background Object
+	std::string backPath = "Images/BarBack.bmp";
+	SDL_Texture *backTex = loadTexture(renderer, backPath);
+
+	//SDL_Renderer *renderer, std::string path, 
+	UIElement::AddUIObject(backTex, { 200, 200 }, { 100, 100 });
+
+	// Bar Fill Object (the moving colour part)
+	//	TODO: bar fill obj
+
+	// Bar Front Object
 	std::string frontPath = "Images/BarFront.bmp";
-	UIElement::AddUIObject(renderer, frontPath, { 300, 200 }, { 100, 100 });
+	SDL_Texture *frontTex = loadTexture(renderer, frontPath);
+
+	UIElement::AddUIObject(frontTex, { 200, 200 }, { 100, 100 });
 }
