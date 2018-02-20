@@ -7,6 +7,7 @@ void WaveTimerBar::update()
 
 void WaveTimerBar::render(SDL_Renderer *renderer)
 {
+	//TODO: gud?
 	UIElement::render(renderer);
 
 	//for (Object obj : m_objList) {

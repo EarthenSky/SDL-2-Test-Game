@@ -20,7 +20,7 @@ public:
 	void AddUIObject(SDL_Texture *texture, Point pos, Point texSize);
 	void render(SDL_Renderer *renderer);
 
-
+	Object object;
 
 	SDL_Texture *m_texture = NULL;
 };

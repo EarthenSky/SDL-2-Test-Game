@@ -1,7 +1,7 @@
 #include "Object.h"
 
 // This constructor loads a texture and makes position and texture size values.
-Object::Object(SDL_Texture *texture, Point pos, Point texSize)
+void Object::Init(SDL_Texture *texture, Point pos, Point texSize)
 {
 	m_texture = texture;
 	m_pos = pos;
@@ -16,11 +16,14 @@ void Object::Render(SDL_Renderer *renderer)
 	//TEXTURE IS NOT BEING PASSED CORRECTLY.
 	SDL_Rect placementRect = { 50, 60, 300, 600 };
 	SDL_RenderCopy(renderer, m_texture, NULL, &placementRect);
+
+	printf("SDL Error: %s\n", SDL_GetError());
 }
 
 // This deconstructor frees the loaded image.
 Object::~Object()
 {
+	printf("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
 	SDL_DestroyTexture(m_texture);
 	m_texture = NULL;
 }
