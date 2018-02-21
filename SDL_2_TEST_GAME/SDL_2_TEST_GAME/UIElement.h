@@ -13,16 +13,14 @@ class UIElement {
 public:
 	virtual void update();  //not a pure virtual function
 
-	Point m_position;  //position of the UIElement (the object carrier)
+	//Point m_position;  //position of the UIElement (the object carrier)
 
-	std::vector<Object> m_objList;  // Holds all of the texture objects
+	std::vector<Object*> m_objList;  // Holds all of the texture objects
 
 	void AddUIObject(SDL_Texture *texture, Point pos, Point texSize);
 	void render(SDL_Renderer *renderer);
 
-	Object object;
-
-	SDL_Texture *m_texture = NULL;
+	~UIElement();
 };
 
 #endif // !UIELEMENT

@@ -2,8 +2,8 @@
 
 void Scene::init(SDL_Renderer *renderer, std::string path)
 {
-	xPos = 20;
-	yPos = 20;
+	xPos = 300;
+	yPos = 75/2;
 	texture = loadTexture(renderer, path);
 	texWidth = 600;
 	texHeight = 600;
@@ -16,31 +16,31 @@ void Scene::render(SDL_Renderer *renderer)
 	SDL_RenderCopy(renderer, texture, NULL, &placementRect);
 }
 
-int sceneTop = 20;
-int sceneLeft = 20;
-int sceneBottom = 620;
-int sceneRight = 620;
+int sceneTop = 0;
+int sceneLeft = 0;
+int sceneBottom = 600;
+int sceneRight = 600;
 Point Scene::checkArenaCollision(Point pos, int radius)
 {
 	//TODO: this
 	Point out = {0, 0};
 
-	if (pos.x + 2 * radius > sceneRight) {
+	if (pos.x + 2 * radius > sceneRight + xPos) {
 		printf("R");
-		out.x = (pos.x + 2 * radius) - sceneRight;
+		out.x = (pos.x + 2 * radius) - (sceneRight + xPos);
 	}
-	else if (pos.x < sceneLeft) {
+	else if (pos.x < sceneLeft + xPos) {
 		printf("L");
-		out.x = pos.x - sceneLeft;
+		out.x = pos.x - (sceneLeft + xPos);
 	}
 	
-	if (pos.y + 2 * radius> sceneBottom) {
+	if (pos.y + 2 * radius> sceneBottom + yPos) {
 		printf("B");
-		out.y = (pos.y + 2 * radius) - sceneBottom;
+		out.y = (pos.y + 2 * radius) - (sceneBottom + yPos);
 	}
-	else if (pos.y < sceneTop) {
+	else if (pos.y < sceneTop + yPos) {
 		printf("T");
-		out.y = pos.y - sceneTop;
+		out.y = pos.y - (sceneTop + yPos);
 	}
 
 	return out;

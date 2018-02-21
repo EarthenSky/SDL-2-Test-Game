@@ -4,15 +4,12 @@
 //not a class
 //holds ui items
 
-//std::vector<UIElement> listUIElements;
-
 WaveTimerBar gUIWaveBar;
 
 //Initialize UI Objects here
 void initUI(SDL_Renderer *renderer)
 {
 	gUIWaveBar.init(renderer);
-	//listUIElements.push_back(uiWaveBar);
 }
 
 void updateUI()

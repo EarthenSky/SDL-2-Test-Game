@@ -3,29 +3,29 @@
 // This function creates an object and adds it to a list
 void UIElement::AddUIObject(SDL_Texture *texture, Point pos, Point texSize)
 {
-	m_texture = texture;
-
 	// Adds an object to the list.
-	object.Init(texture, pos, texSize);
-	m_objList.push_back(object);
+	m_objList.push_back(new Object(texture, pos, texSize));
 }
 
 // This function renders the child objects.s
 void UIElement::render(SDL_Renderer *renderer)
-{
-	//printf("RENDERING \n");
+{ 
 	// Iterates over all childs objects and calls their render function.
-	for (Object obj : m_objList) {
-		obj.Render(renderer);
-		//printf("0");
+	for (Object* obj : m_objList) {
+		obj->Render(renderer);
 	}
-
-	//SDL_Rect placementRect = { 50, 60, 300, 600 };
-	//SDL_RenderCopy(renderer, m_texture, NULL, &placementRect);
 }
 
 void UIElement::update()
 {
 	//Do nothing...
 	printf("nasingu");
+}
+
+UIElement::~UIElement() 
+{
+	//delete all object classes in the deconstructor to avoid memory leaks
+	for (Object* obj : m_objList) {
+		delete obj;
+	}
 }

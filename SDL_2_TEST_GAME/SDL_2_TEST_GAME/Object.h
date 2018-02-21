@@ -6,15 +6,10 @@
 #include <iostream>
 #include "Point.h"
 
-//SDL_Texture *loadTexture(SDL_Renderer *renderer, std::string path);
-
-extern SDL_Renderer *gRenderer;
-//extern SDL_Texture *gTexture;
-
 // This class holds object position and texture info
 class Object {
 public:
-	void Init(SDL_Texture *texture, Point pos, Point texSize);
+	Object(SDL_Texture *texture, Point pos, Point texSize);
 
 	Point m_pos; 
 	Point m_texSize;
@@ -23,6 +18,8 @@ public:
 
 	//SDL_Rect placementRect;
 	void Render(SDL_Renderer *renderer);
+
+	int num;
 
 	~Object();
 };
