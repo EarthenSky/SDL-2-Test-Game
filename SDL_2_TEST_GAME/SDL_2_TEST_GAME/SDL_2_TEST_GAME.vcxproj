@@ -127,7 +127,6 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="UIElement.cpp" />
-    <ClCompile Include="WaveBar.cpp" />
     <ClCompile Include="WaveTimerBar.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -144,10 +143,12 @@
     <ClInclude Include="WaveTimerBar.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Images\aiTex.bmp" />
     <Image Include="Images\Arena.bmp" />
     <Image Include="Images\BarBack.bmp" />
     <Image Include="Images\BarFront.bmp" />
     <Image Include="Images\Char.bmp" />
+    <Image Include="Images\Colour.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

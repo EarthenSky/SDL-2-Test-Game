@@ -17,7 +17,7 @@ public:
 
 	std::vector<Object*> m_objList;  // Holds all of the texture objects
 
-	void AddUIObject(SDL_Texture *texture, Point pos, Point texSize);
+	void AddUIObject(SDL_Texture *texture, Point pos, Point texSize, double rotation=0);
 	void render(SDL_Renderer *renderer);
 
 	~UIElement();

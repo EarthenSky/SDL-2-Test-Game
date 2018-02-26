@@ -1,8 +1,26 @@
 #include "WaveTimerBar.h"
 
+float currentTimerValue = 0;
+float initTime = 0;
+
 void WaveTimerBar::update() 
 {
-	//do maths & timer stuff here
+	// Calculate time since start
+	currentTimerValue = SDL_GetTicks() - initTime;
+	printf("0");
+
+	// Move the bar over time
+	m_objList[1]->m_pos = { m_objList[1]->m_pos.x, (int)(131 * 4 - currentTimerValue / 26.4) };
+	m_objList[1]->m_texSize = { m_objList[1]->m_texSize.x, (int)(currentTimerValue / 26.4) };
+
+	// If time is 10 seconds reset timer
+	if (currentTimerValue > 10 * 1000) {
+
+		// TODO: Call spawn enemies.
+
+		initTime = SDL_GetTicks();
+		printf("1\n1\n1\n1\n1\n1\n1\n\n\n\n\n\n\n1\n1\n1");
+	}
 }
 
 void WaveTimerBar::render(SDL_Renderer *renderer)
@@ -17,14 +35,20 @@ void WaveTimerBar::init(SDL_Renderer *renderer)
 	std::string backPath = "Images/BarBack.bmp";
 	SDL_Texture *backTex = loadTexture(renderer, backPath);
 
-	UIElement::AddUIObject(backTex, { 200, 100 }, { 100, 400 });
+	UIElement::AddUIObject(backTex, { 150, 135 }, { 100, 400 });
 
 	// Bar Fill Object (the moving colour part)
-	//	TODO: bar fill obj
+	std::string fillPath = "Images/Colour.bmp";
+	SDL_Texture *fillTex = loadTexture(renderer, fillPath);
+
+	UIElement::AddUIObject(fillTex, { 150, 131*4 }, { 100, 5 }, 90);
 
 	// Bar Front Object
 	std::string frontPath = "Images/BarFront.bmp";
 	SDL_Texture *frontTex = loadTexture(renderer, frontPath);
 
-	UIElement::AddUIObject(frontTex, { 200, 100 }, { 100, 400 });
+	UIElement::AddUIObject(frontTex, { 150, 135 }, { 100, 400 });
+
+	// Sets the initial time modifier (ms).
+	initTime = SDL_GetTicks();
 }

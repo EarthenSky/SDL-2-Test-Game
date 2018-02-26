@@ -1,3 +1,5 @@
-﻿  Scene.cpp
+﻿  WaveTimerBar.cpp
+c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\wavetimerbar.cpp(21): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
+c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\wavetimerbar.cpp(53): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
   SDL_2_TEST_GAME.vcxproj -> C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.exe
   SDL_2_TEST_GAME.vcxproj -> C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.pdb (Partial PDB)

@@ -45,9 +45,6 @@
     <ClCompile Include="UIElement.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WaveBar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="WaveTimerBar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -101,6 +98,12 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Images\BarFront.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Images\Colour.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Images\aiTex.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
