@@ -7,7 +7,7 @@ void WaveTimerBar::update()
 {
 	// Calculate time since start
 	currentTimerValue = SDL_GetTicks() - initTime;
-	printf("0");
+	//printf("0");
 
 	// Move the bar over time
 	m_objList[1]->m_pos = { m_objList[1]->m_pos.x, (int)(131 * 4 - currentTimerValue / 26.4) };
@@ -19,7 +19,7 @@ void WaveTimerBar::update()
 		// TODO: Call spawn enemies.
 
 		initTime = SDL_GetTicks();
-		printf("1\n1\n1\n1\n1\n1\n1\n\n\n\n\n\n\n1\n1\n1");
+		//printf("1\n1\n1\n1\n1\n1\n1\n\n\n\n\n\n\n1\n1\n1");
 	}
 }
 
