@@ -3,9 +3,10 @@
 
 #include <SDL.h>
 #include <string>
-#include <cmath>
 #include "Point.h"
-#include "EnemyManager.h"
+#include <list>
+#include <iostream>
+//#include "EnemyManager.h"
 
 //TODO: add player attacks to checkInput().
 
@@ -13,15 +14,15 @@
 
 //extern SDL_Event gInputHandler;
 
-class EnemyManager;
+//class EnemyManager;
 
 class Enemy {
 public:
-	Enemy(SDL_Texture *texture, Point position, Point texSize, double rotation, int listIndex, EnemyManager* enemyPtr);
+	Enemy(SDL_Texture *texture, Point position, Point texSize, double rotation, std::list<Enemy*> *killList);
 
-	EnemyManager* m_enemyPtr;
+	std::list<Enemy*> *m_killListPtr;
 
-	int m_listIndex;
+	//int m_listIndex;
 
 	Point m_position;  //position
 	Point m_velocity;  //velocity
@@ -39,7 +40,6 @@ public:
 	void destroyEnemy();  //This function destroys this object and removes it from the list.
 
 	void render(SDL_Renderer *renderer);
-	//void checkInput();  //this is a reference
 
 	~Enemy();
 };
