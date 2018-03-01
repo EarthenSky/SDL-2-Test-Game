@@ -12,6 +12,7 @@ void handleInput();
 
 #include "Player.h"
 #include "Scene.h"
+#include "EnemyManager.h"
 #include "UI.h" //I think
 
 #endif 

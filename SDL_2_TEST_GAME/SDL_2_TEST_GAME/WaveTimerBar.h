@@ -2,6 +2,9 @@
 #define WAVETIMERBAR
 
 #include "UIElement.h"
+#include "EnemyManager.h"
+
+extern EnemyManager gEnemyManager;
 
 class WaveTimerBar : public UIElement {
 public:

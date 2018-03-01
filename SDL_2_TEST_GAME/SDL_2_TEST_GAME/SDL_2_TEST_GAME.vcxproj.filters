@@ -86,6 +86,9 @@
     <ClInclude Include="Object.h">
       <Filter>Source Files\Systems</Filter>
     </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Images\Char.bmp">

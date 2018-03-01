@@ -9,6 +9,7 @@ SDL_Event gInputHandler;  // Event handler for input.
 
 Player gPlayer;  // Holds player info.
 Scene gScene;  // Holds scene info.
+EnemyManager gEnemyManager;  // Holds all enemy info.
 
 SDL_Texture *gTextureBarBack = NULL;
 
@@ -17,10 +18,8 @@ void gameLoopInit()
 	// Init object classes here
 	gPlayer.init(gRenderer, "Images/Char.bmp", {160, 160});
 	gScene.init(gRenderer, "Images/Arena.bmp");
-
-	//init global textures
-	gTextureBarBack = loadTexture(gRenderer, "Images/BarBack.bmp");
-
+	gEnemyManager.init(gRenderer);  // This initializes the textures.
+	
 	initUI(gRenderer);  // Init all UI objects.
 
 	updateLoop();
@@ -28,14 +27,14 @@ void gameLoopInit()
 
 void updateLoop()
 {
-	//main game loop
+	// Main game loop
 	while (gGameState != STOPPED) {
 		if (gGameState == RUNNING) {
-			updateUI();  //Update all ui functions
+			updateUI();  // Update all ui functions
 
-			//regular game code goes here
-			
-			//updates player math and collision (collision function sent here.)
+			gEnemyManager.update();  // Update all enemy classes
+
+			// Updates player math and collision (collision function sent here.)
 			gPlayer.update();
 			gPlayer.collision(gScene.checkArenaCollision(gPlayer.m_position, gPlayer.m_texHeight / 2));
 
@@ -56,9 +55,9 @@ void renderAssets()
 	//clear screen
 	SDL_RenderClear(gRenderer);
 
-	//render stuff here (first rendered goes to the bottom)
+	// Call class render functions here (first rendered goes to the bottom-most layer)
 	gScene.render(gRenderer);
-	//enemy manager render call here
+	gEnemyManager.render(gRenderer);
 	gPlayer.render(gRenderer);
 
 	// Render the UI above all other assets

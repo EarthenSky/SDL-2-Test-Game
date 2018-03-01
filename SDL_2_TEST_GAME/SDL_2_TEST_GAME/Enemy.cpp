@@ -1,15 +1,14 @@
 #include "Enemy.h"
-
+int index = 0;
 // This constructor loads a texture and makes position and texture size values.
-Enemy::Enemy(SDL_Texture *texture, Point position, Point texSize, double rotation, int listIndex, EnemyManager* enemyPtr)
+Enemy::Enemy(SDL_Texture *texture, Point position, Point texSize, double rotation, std::list<Enemy*> *killList)
 {
-	m_listIndex = listIndex;
 	m_texture = texture;
 	m_position = position;
 	m_texSize = texSize;
 	m_rotation = rotation;
 
-	m_enemyPtr = enemyPtr;
+	m_killListPtr = killList;
 }
 
 // This function renders the texture in its placement rectangle.
@@ -24,6 +23,11 @@ void Enemy::render(SDL_Renderer *renderer)
 void Enemy::update() 
 {
 	//move ai
+	//std::cout << index << " ";
+
+	if (++index > 300) {
+		Enemy::destroyEnemy();
+	}
 }
 
 void Enemy::collision(Point collsionOffset)
@@ -33,13 +37,11 @@ void Enemy::collision(Point collsionOffset)
 
 void Enemy::destroyEnemy() 
 {
-	//should destroy the enemy
-	m_enemyPtr->m_enemyList.erase(m_enemyPtr->m_enemyList.begin() + (m_listIndex - 1));
+	//should destroy the enemy x + (m_listIndex)
+	m_killListPtr->push_back(this);
 }
 
 // This deconstructor frees the loaded image.
 Enemy::~Enemy()
 {
-	SDL_DestroyTexture(m_texture);
-	m_texture = NULL;
 }
