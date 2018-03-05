@@ -6,6 +6,7 @@
 #include "Point.h"
 #include <list>
 #include <iostream>
+#include <memory>
 //#include "EnemyManager.h"
 
 //TODO: add player attacks to checkInput().
@@ -18,9 +19,9 @@
 
 class Enemy {
 public:
-	Enemy(SDL_Texture *texture, Point position, Point texSize, double rotation, std::list<Enemy*> *killList);
+	Enemy(SDL_Texture *texture, Point position, Point texSize, double rotation, std::list<std::unique_ptr<Enemy>> *killList);
 
-	std::list<Enemy*> *m_killListPtr;
+	std::list<std::unique_ptr<Enemy>> *m_killListPtr;
 
 	//int m_listIndex;
 

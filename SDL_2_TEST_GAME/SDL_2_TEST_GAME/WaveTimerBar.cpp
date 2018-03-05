@@ -17,7 +17,10 @@ void WaveTimerBar::update()
 	if (currentTimerValue > 10 * 1000) {
 
 		// TODO: Call spawn enemies.
-		gEnemyManager.spawnEnemy({ 600, 200}, { 160, 160 });
+		for (int i = 0; i < 2; i++) {
+			gEnemyManager.spawnEnemy({ 600, i * 5 }, { 160, 160 });
+		}
+		
 
 		initTime = SDL_GetTicks();
 		//printf("1\n1\n1\n1\n1\n1\n1\n\n\n\n\n\n\n1\n1\n1");

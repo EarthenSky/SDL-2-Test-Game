@@ -14,29 +14,28 @@ void EnemyManager::spawnEnemy(Point pos, Point texSize, double rotation)
 	// The list id of the enemy, used for deleting the object.
 	//int listIndex = m_enemyList.size();
 
-	// Adds a new enemy object to the list.
-	m_enemyList.push_back(new Enemy(m_enemyTexture, pos, texSize, rotation, &m_killList));
+	// Adds a new smart pointer to an enemy to the list.  Doesn't need to be deallocated.
+	m_enemyList.push_back(std::unique_ptr<Enemy>(new Enemy(m_enemyTexture, pos, texSize, rotation, &m_killList)));
 }
 
 void EnemyManager::update()
 {
 	// Iterates over all child list objects and calls their render function.
-	for (Enemy* enemyObj : m_enemyList) {
+	for (std::unique_ptr<Enemy>& enemyObj : m_enemyList) {
 		enemyObj->update();
 	}
 
 	// Destroys all objects that need to be killed
-	for (Enemy* enemyPtr : m_killList) {
-		delete enemyPtr;  // Give the memory back before the item is removed from list.
-		//m_enemyList.remove(enemyPtr);
+	for (std::unique_ptr<Enemy>& enemyPtr : m_killList) {
+		//delete enemyPtr;  // Give the memory back before the item is removed from list.
+		m_enemyList.remove(enemyPtr);
 	}
-
 }
 
 void EnemyManager::render(SDL_Renderer *renderer)
 {
 	// Iterates over all child list objects and calls their render function.
-	for (Enemy* enemyObj : m_enemyList) {
+	for (std::unique_ptr<Enemy>& enemyObj : m_enemyList) {
 		enemyObj->render(renderer);
 	}
 }
@@ -44,9 +43,9 @@ void EnemyManager::render(SDL_Renderer *renderer)
 EnemyManager::~EnemyManager()
 {
 	// Delete all enemy classes in the deconstructor to avoid memory leaks
-	for (Enemy* enemyObj : m_enemyList) {
-		delete enemyObj;
-	}
+	//for (Enemy* enemyObj : m_enemyList) {
+		//delete enemyObj;
+	//}
 
 	// Delete Enemy Texture
 	SDL_DestroyTexture(m_enemyTexture);
