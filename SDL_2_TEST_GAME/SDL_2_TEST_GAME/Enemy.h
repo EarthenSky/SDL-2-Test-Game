@@ -19,9 +19,9 @@
 
 class Enemy {
 public:
-	Enemy(SDL_Texture *texture, Point position, Point texSize, double rotation, std::list<std::unique_ptr<Enemy>> *killList);
+	Enemy(SDL_Texture *texture, Point position, Point texSize, double rotation, std::list<Enemy*> *killList);
 
-	std::list<std::unique_ptr<Enemy>> *m_killListPtr;
+	std::list<Enemy*> *m_killListPtr;
 
 	//int m_listIndex;
 

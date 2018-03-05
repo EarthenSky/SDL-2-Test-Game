@@ -22,8 +22,8 @@ public:
 	// Call this function to create an enemy object
 	void spawnEnemy(Point pos, Point texSize, double rotation=0);
 
-	std::list<std::unique_ptr<Enemy>> m_enemyList;  // Holds all of the enemy objects
-	std::list<std::unique_ptr<Enemy>> m_killList;  // Holds the indexes to destroy
+	std::list<Enemy*> m_enemyList;  // Holds all of the enemy objects
+	std::list<Enemy*> m_killList;  // Holds the indexes to destroy
 
 	SDL_Texture *m_enemyTexture = NULL;  // The texture for all the enemies
 

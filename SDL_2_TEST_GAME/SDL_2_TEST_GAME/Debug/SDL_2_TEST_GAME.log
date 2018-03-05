@@ -1,25 +1,3 @@
-﻿  WaveTimerBar.cpp
-c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\wavetimerbar.cpp(25): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
-c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\wavetimerbar.cpp(57): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
-  Scene.cpp
-  Player.cpp
-  LoadTexture.cpp
-  GameManager.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  UIElement.cpp
-  UI.cpp
-  Object.cpp
-  GameLoop.cpp
-  EnemyManager.cpp
-  Enemy.cpp
-  LINK : C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.exe not found or not built by the last incremental link; performing full link
-     Creating library C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.lib and object C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.exp
-UIElement.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'UIElement.obj' or at 'C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\vc140.pdb'; linking object as if no debug info
-UI.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'UI.obj' or at 'C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\vc140.pdb'; linking object as if no debug info
-Object.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'Object.obj' or at 'C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\vc140.pdb'; linking object as if no debug info
-GameLoop.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'GameLoop.obj' or at 'C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\vc140.pdb'; linking object as if no debug info
-EnemyManager.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'EnemyManager.obj' or at 'C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\vc140.pdb'; linking object as if no debug info
-Enemy.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'Enemy.obj' or at 'C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\vc140.pdb'; linking object as if no debug info
-  SDL_2_TEST_GAME.vcxproj -> C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.exe
-  SDL_2_TEST_GAME.vcxproj -> C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.pdb (Partial PDB)
+﻿  Enemy.cpp
+  SDL_2_TEST_GAME.vcxproj -> C:\Users\gabeg\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.exe
+  SDL_2_TEST_GAME.vcxproj -> C:\Users\gabeg\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.pdb (Partial PDB)
