@@ -7,13 +7,13 @@
 #include "Point.h"
 #include <list>
 #include "Enemy.h"
-#include <memory>
+#include "Scene.h"
 
 //TODO: add player attacks to checkInput().
 
 SDL_Texture *loadTexture(SDL_Renderer *renderer, std::string path);
 
-//extern SDL_Event gInputHandler;
+extern Scene gScene;
 
 class EnemyManager {
 public:

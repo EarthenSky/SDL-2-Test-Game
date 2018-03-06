@@ -1,3 +1,18 @@
 ﻿  Enemy.cpp
-  SDL_2_TEST_GAME.vcxproj -> C:\Users\gabeg\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.exe
-  SDL_2_TEST_GAME.vcxproj -> C:\Users\gabeg\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.pdb (Partial PDB)
+c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\enemy.cpp(42): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'Point'
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  WaveTimerBar.cpp
+  UI.cpp
+  Player.cpp
+  GameLoop.cpp
+  EnemyManager.cpp
+  LINK : C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.exe not found or not built by the last incremental link; performing full link
+     Creating library C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.lib and object C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.exp
+UIElement.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'UIElement.obj' or at 'C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\vc140.pdb'; linking object as if no debug info
+Scene.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'Scene.obj' or at 'C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\vc140.pdb'; linking object as if no debug info
+Object.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'Object.obj' or at 'C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\vc140.pdb'; linking object as if no debug info
+LoadTexture.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'LoadTexture.obj' or at 'C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\vc140.pdb'; linking object as if no debug info
+GameManager.obj : warning LNK4099: PDB 'vc140.pdb' was not found with 'GameManager.obj' or at 'C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\vc140.pdb'; linking object as if no debug info
+  SDL_2_TEST_GAME.vcxproj -> C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.exe
+  SDL_2_TEST_GAME.vcxproj -> C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.pdb (Partial PDB)

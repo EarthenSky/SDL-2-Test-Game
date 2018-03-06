@@ -8,14 +8,6 @@ void EnemyManager::init(SDL_Renderer *renderer)
 
 void EnemyManager::spawnEnemy(Point pos, Point texSize, double rotation)
 {
-	// Loads the enemy texture
-	//SDL_Texture *texture = loadTexture(renderer, "Images/aiTex.bmp");
-
-	// The list id of the enemy, used for deleting the object.
-	//int listIndex = m_enemyList.size();
-	
-	printf("ADD\n");
-
 	// Adds a new smart pointer to an enemy to the list.  Doesn't need to be deallocated.
 	m_enemyList.push_back(new Enemy(m_enemyTexture, pos, texSize, rotation, &m_killList));
 }
@@ -30,17 +22,18 @@ void EnemyManager::update()
 	// Destroys all objects that need to be killed
 	for (Enemy* enemyPtr : m_killList) {
 		delete enemyPtr;  // Give the memory back before the item is removed from list.
-		printf("REMOVE\n");
 		m_enemyList.remove(enemyPtr);
 	}
 
+	//empty kill list whenever items are in it.
 	if (m_killList.size() > 0) {
-		printf("%d before\n", m_killList.size());
-		printf("CLEAR\n");
 		m_killList.clear();
-		printf("%d after\n", m_killList.size());
 	}
 
+	//check collision with all enemies
+	for (Enemy* enemyObj : m_enemyList) {
+		enemyObj->collision(gScene.checkArenaCollision(enemyObj->m_position, enemyObj->m_texSize.x / 2));
+	}
 }
 
 void EnemyManager::render(SDL_Renderer *renderer)

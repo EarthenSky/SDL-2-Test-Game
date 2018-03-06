@@ -1,3 +1,6 @@
+#ifndef SCENE
+#define SCENE
+
 #include <SDL.h>
 #include <string>
 #include "Point.h"
@@ -18,3 +21,5 @@ public:
 
 	~Scene();
 };
+
+#endif

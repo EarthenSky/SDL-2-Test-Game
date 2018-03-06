@@ -7,6 +7,9 @@
 #include <list>
 #include <iostream>
 #include <memory>
+#include "Player.h"
+
+extern Player gPlayer;
 //#include "EnemyManager.h"
 
 //TODO: add player attacks to checkInput().

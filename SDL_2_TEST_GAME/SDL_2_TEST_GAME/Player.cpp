@@ -24,13 +24,11 @@ void Player::update()
 	//move player based on velocity
 	m_position.x += m_velocity.x;
 	m_position.y += m_velocity.y;
-
-	m_rotation = findPlayerAngle(m_position.y + m_texHeight / 2, m_position.x + m_texWidth / 2);
 }
 
 void Player::collision(Point collsionOffset)
 {
-	//radius is equal to half of player height or width
+	// This moves this object based on the collision offset. 
 	m_position.x -= collsionOffset.x;
 	m_position.y -= collsionOffset.y;
 }
@@ -40,6 +38,9 @@ void Player::render(SDL_Renderer *renderer)
 	//cuts out a single pane of the player animation and sets it to the players position.
 	SDL_Rect placementRect = { m_position.x, m_position.y, m_texWidth, m_texHeight };
 	//SDL_Rect cutRect = { 0, 16, 16, 16 };
+
+	//find rotation just before setting rotation
+	m_rotation = findPlayerAngle(m_position.y + m_texHeight / 2, m_position.x + m_texWidth / 2);
 
 	SDL_RenderCopyEx(renderer, m_texture, NULL, &placementRect, m_rotation, NULL, SDL_FLIP_NONE);
 }

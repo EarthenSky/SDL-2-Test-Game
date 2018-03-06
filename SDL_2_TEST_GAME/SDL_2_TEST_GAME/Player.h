@@ -1,3 +1,6 @@
+#ifndef PLAYER
+#define PLAYER
+
 #include <SDL.h>
 #include <string>
 #include <cmath>
@@ -14,6 +17,8 @@ public:
 	Point m_position;  //position
 	Point m_velocity;  //velocity
 	double m_rotation = 0;
+
+	bool attackOn = false;
 
 	int m_radius;
 
@@ -32,3 +37,4 @@ public:
 	~Player();
 };
 
+#endif
