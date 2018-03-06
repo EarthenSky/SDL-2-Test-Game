@@ -10,14 +10,14 @@ void WaveTimerBar::update()
 	//printf("0");
 
 	// Move the bar over time
-	m_objList[1]->m_pos = { m_objList[1]->m_pos.x, (int)(131 * 4 - currentTimerValue / 26.4) };
-	m_objList[1]->m_texSize = { m_objList[1]->m_texSize.x, (int)(currentTimerValue / 26.4) };
+	m_objList[1]->m_pos = { m_objList[1]->m_pos.x, (131 * 4 - currentTimerValue / 26.4) };
+	m_objList[1]->m_texSize = { m_objList[1]->m_texSize.x, (currentTimerValue / 26.4) };
 
 	// If time is 10 seconds reset timer
 	if (currentTimerValue > 10 * 1000) {
 		// Spawn enemies
 		for (int i = 0; i < 1; i++) {
-			gEnemyManager.spawnEnemy({ 400, i * 20 }, { 80, 80 });
+			gEnemyManager.spawnEnemy({ 400, (double)i * 20 }, { 80, 80 });
 		}
 	
 		initTime = SDL_GetTicks();

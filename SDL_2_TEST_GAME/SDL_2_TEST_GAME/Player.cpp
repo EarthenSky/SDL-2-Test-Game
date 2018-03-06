@@ -61,7 +61,7 @@ int keySum()
 }
 
 //makes the key that is down activate the movement.
-void pressedKeyMoves(int &xVelocity, int &yVelocity)
+void pressedKeyMoves(double &xVelocity, double &yVelocity)
 {
 	if (keySum() == 1) {
 		if (wKeyDown == true) {

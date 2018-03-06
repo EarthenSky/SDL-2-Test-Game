@@ -3,7 +3,7 @@
 
 //holds two int values
 struct Point {
-	int x, y;
+	double x, y;
 
 	//Point operator+(const Point &pnt) const;
 };

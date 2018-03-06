@@ -30,9 +30,10 @@ void EnemyManager::update()
 		m_killList.clear();
 	}
 
-	//check collision with all enemies
+	//check collision with all enemies and the player
 	for (Enemy* enemyObj : m_enemyList) {
-		enemyObj->collision(gScene.checkArenaCollision(enemyObj->m_position, enemyObj->m_texSize.x / 2));
+		enemyObj->setCollision(gScene.checkArenaCollision(enemyObj->m_position, enemyObj->m_texSize.x / 2));
+		enemyObj->checkCollision();
 	}
 }
 

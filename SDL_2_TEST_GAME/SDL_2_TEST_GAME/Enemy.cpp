@@ -1,5 +1,4 @@
 #include "Enemy.h"
-int index = 0;
 
 double findAngle(Point pOne, Point pTarget)
 {
@@ -12,11 +11,14 @@ double findAngle(Point pOne, Point pTarget)
 // This constructor loads a texture and makes position and texture size values.
 Enemy::Enemy(SDL_Texture *texture, Point position, Point texSize, double rotation, std::list<Enemy*> *killList)
 {
-	printf("CREATE\n");
+	//printf("CREATE\n");
 	m_texture = texture;
 	m_position = position;
 	m_texSize = texSize;
 	m_rotation = rotation;
+
+	// Half the texture size is radius
+	m_radius = texSize.x / 2;
 
 	m_killListPtr = killList;
 }
@@ -30,17 +32,37 @@ void Enemy::render(SDL_Renderer *renderer)
 	//printf("SDL Error: %s\n", SDL_GetError());
 }
 
-void Enemy::collision(Point collsionOffset)
+void Enemy::setCollision(Point collsionOffset)
 {
 	// This moves this object based on the collision offset. 
 	m_position.x -= collsionOffset.x;
 	m_position.y -= collsionOffset.y;
 }
 
+// Finds the distance between two things
+double distanceBetweenTwoPoints(double x, double y, double x2, double y2) {
+	return std::sqrt(std::pow(x - x2, 2) + std::pow(y - y2, 2));
+}
+
+void Enemy::checkCollision() 
+{
+	// If objects are colliding then yell
+	if (distanceBetweenTwoPoints(m_position.x, m_position.y, gPlayer.m_position.x, gPlayer.m_position.y) > m_radius + gPlayer.m_radius) {
+		printf("NUKOPANCHUUUUUUUUUU");
+	}
+}
+
 void Enemy::update() 
 {
-	printf("%d/n", gPlayer.m_position);
+	//printf("%d/n", gPlayer.m_position);
+	// Set look direction
 	m_rotation = findAngle(m_position, gPlayer.m_position);
+
+	// set move in that direction
+	double cos = std::cos(m_rotation);
+	double sin = std::sin(m_rotation);
+
+	m_position = { m_position.x + (2 * cos), m_position.y + (2 * sin) };
 }
 
 void Enemy::destroyEnemy() 
