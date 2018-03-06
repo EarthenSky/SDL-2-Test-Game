@@ -25,7 +25,7 @@ Enemy::Enemy(SDL_Texture *texture, Point position, Point texSize, double rotatio
 void Enemy::render(SDL_Renderer *renderer)
 {
 	SDL_Rect placementRect = { m_position.x, m_position.y, m_texSize.x, m_texSize.y };
-	SDL_RenderCopyEx(renderer, m_texture, NULL, &placementRect, 0, NULL, SDL_FLIP_NONE);
+	SDL_RenderCopyEx(renderer, m_texture, NULL, &placementRect, m_rotation, NULL, SDL_FLIP_NONE);
 
 	//printf("SDL Error: %s\n", SDL_GetError());
 }
