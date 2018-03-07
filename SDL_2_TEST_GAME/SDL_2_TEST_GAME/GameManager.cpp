@@ -26,7 +26,7 @@ void initSdl()
 		SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC
 	);
 
-	SDL_SetRenderDrawColor(gRenderer, 0, 24, 78, 0);  //sets the render color to white.
+	SDL_SetRenderDrawColor(gRenderer, 55, 55, 55, 255);  //sets the render color to grey.
 }
 
 int main(int argc, char* args[]) 

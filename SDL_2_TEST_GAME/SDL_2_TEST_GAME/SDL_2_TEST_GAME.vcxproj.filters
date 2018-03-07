@@ -51,6 +51,9 @@
     <ClCompile Include="Object.cpp">
       <Filter>Source Files\Systems</Filter>
     </ClCompile>
+    <ClCompile Include="HP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManger.h">
@@ -89,6 +92,9 @@
     <ClInclude Include="EnemyManager.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="HP.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Images\Char.bmp">
@@ -107,6 +113,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Images\aiTex.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Images\HealthMarker.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

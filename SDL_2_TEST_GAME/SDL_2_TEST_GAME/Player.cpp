@@ -8,6 +8,17 @@ void Player::init(SDL_Renderer *renderer, std::string path, Point pos) {
 	m_radius = m_texWidth / 2;
 }
 
+void Player::decrementHP() {
+	hp--;  //decrement
+
+	if (hp <= 0) {
+		//TODO: destroy ai.
+
+		SDL_Delay(2000);  //wait 2 seconds
+		gGameState = 0;
+	}
+}
+
 int mousePosX = 0;
 int mousePosY = 0;
 double findPlayerAngle(int yPos, int xPos) 

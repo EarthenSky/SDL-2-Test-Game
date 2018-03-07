@@ -21,6 +21,8 @@ public:
 	//SDL_Rect placementRect;
 	void Render(SDL_Renderer *renderer);
 
+	bool hidden = false;
+
 	~Object();
 };
 

@@ -32,11 +32,11 @@ void updateLoop()
 		if (gGameState == RUNNING) {
 			updateUI();  // Update all ui functions
 
-			gEnemyManager.update();  // Update all enemy classes
-
 			// Updates player math and collision (collision function sent here.)
 			gPlayer.update();
 			gPlayer.collision(gScene.checkArenaCollision(gPlayer.m_position, gPlayer.m_texHeight / 2));
+
+			gEnemyManager.update();  // Update all enemy classes
 
 			renderAssets();  //renders textures.
 		}

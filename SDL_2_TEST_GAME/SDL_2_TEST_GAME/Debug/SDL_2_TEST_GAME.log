@@ -1,5 +1,19 @@
-﻿  Skipping... (no relevant changes detected)
+﻿  UI.cpp
+c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\ui.h(12): error C2628: 'HP' followed by 'void' is illegal (did you forget a ';'?)
+c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\ui.cpp(12): error C2556: 'void initUI(SDL_Renderer *)': overloaded function differs only by return type from 'HP initUI(SDL_Renderer *)'
+  c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\ui.h(12): note: see declaration of 'initUI'
+c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\ui.cpp(12): error C2371: 'initUI': redefinition; different basic types
+  c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\ui.h(12): note: see declaration of 'initUI'
+  HP.cpp
+c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\hp.cpp(3): error C2628: 'HP' followed by 'void' is illegal (did you forget a ';'?)
+c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\hp.cpp(4): error C2556: 'HP HP::update(void)': overloaded function differs only by return type from 'void HP::update(void)'
+  c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\hp.h(12): note: see declaration of 'HP::update'
+c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\hp.cpp(4): error C2371: 'HP::update': redefinition; different basic types
+  c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\hp.h(12): note: see declaration of 'HP::update'
+c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\hp.cpp(22): error C2397: conversion from 'int' to 'double' requires a narrowing conversion
+c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\hp.cpp(30): warning C4553: '==': operator has no effect; did you intend '='?
+  GameLoop.cpp
+c:\users\gabe\documents\github\sdl_2_test\sdl_2_test_game\sdl_2_test_game\ui.h(12): error C2628: 'HP' followed by 'void' is illegal (did you forget a ';'?)
+  Generating Code...
+  Skipping... (no relevant changes detected)
   LoadTexture.cpp
-  GameManager.cpp
-  SDL_2_TEST_GAME.vcxproj -> C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.exe
-  SDL_2_TEST_GAME.vcxproj -> C:\Users\Gabe\Documents\GitHub\SDL_2_TEST\SDL_2_TEST_GAME\Debug\SDL_2_TEST_GAME.pdb (Partial PDB)

@@ -46,29 +46,35 @@ double distanceBetweenTwoPoints(double x, double y, double x2, double y2) {
 
 void Enemy::checkCollision() 
 {
-	// If objects are colliding then yell
-	if (distanceBetweenTwoPoints(m_position.x, m_position.y, gPlayer.m_position.x, gPlayer.m_position.y) > m_radius + gPlayer.m_radius) {
-		printf("NUKOPANCHUUUUUUUUUU");
+	// If objects are colliding then look what to do
+	if (distanceBetweenTwoPoints(m_position.x, m_position.y, gPlayer.m_position.x, gPlayer.m_position.y) < (m_radius + gPlayer.m_radius)) {
+		// If the player is not attacking then it takes damage.
+		if (gPlayer.attackOn == false) {  
+			gPlayer.decrementHP();
+		}
+
+		destroyEnemy();  // If the ai collides with the player then it dies.
 	}
+}
+
+void Enemy::destroyEnemy()
+{
+	// Passes a reference froms this object to the kill list.
+	m_killListPtr->push_back(this);
 }
 
 void Enemy::update() 
 {
-	//printf("%d/n", gPlayer.m_position);
 	// Set look direction
 	m_rotation = findAngle(m_position, gPlayer.m_position);
+	
+	double rot = std::atan2(gPlayer.m_position.y - m_position.y, gPlayer.m_position.x - m_position.x);
 
 	// set move in that direction
-	double cos = std::cos(m_rotation);
-	double sin = std::sin(m_rotation);
+	double cos = std::cos(rot);
+	double sin = std::sin(rot);
 
-	m_position = { m_position.x + (2 * cos), m_position.y + (2 * sin) };
-}
-
-void Enemy::destroyEnemy() 
-{
-	// Passes a reference froms this object to the kill list.
-	m_killListPtr->push_back(this);
+	m_position = { m_position.x + (1.5 * cos), m_position.y + (1.5 * sin) };
 }
 
 // This deconstructor frees the loaded image.

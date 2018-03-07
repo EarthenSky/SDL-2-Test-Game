@@ -11,9 +11,12 @@
 SDL_Texture *loadTexture(SDL_Renderer *renderer, std::string path);
 
 extern SDL_Event gInputHandler;
+extern int gGameState;
 
 class Player {
 public:
+	void decrementHP();
+
 	Point m_position;  //position
 	Point m_velocity;  //velocity
 	double m_rotation = 0;
@@ -35,6 +38,9 @@ public:
 	void checkInput();  //this is a reference
 
 	~Player();
+
+private:
+	int hp = 5;
 };
 
 #endif
