@@ -16,6 +16,7 @@ extern int gGameState;
 class Player {
 public:
 	void decrementHP();
+	int hp = 5;
 
 	Point m_position;  //position
 	Point m_velocity;  //velocity
@@ -38,9 +39,6 @@ public:
 	void checkInput();  //this is a reference
 
 	~Player();
-
-private:
-	int hp = 5;
 };
 
 #endif

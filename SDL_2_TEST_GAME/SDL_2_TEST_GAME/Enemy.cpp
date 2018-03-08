@@ -50,7 +50,8 @@ void Enemy::checkCollision()
 	if (distanceBetweenTwoPoints(m_position.x, m_position.y, gPlayer.m_position.x, gPlayer.m_position.y) < (m_radius + gPlayer.m_radius)) {
 		// If the player is not attacking then it takes damage.
 		if (gPlayer.attackOn == false) {  
-			gPlayer.decrementHP();
+			gPlayer.decrementHP();  //check for death and update up value
+			gHP.setHPSize(gPlayer.hp);  //update the health ui
 		}
 
 		destroyEnemy();  // If the ai collides with the player then it dies.

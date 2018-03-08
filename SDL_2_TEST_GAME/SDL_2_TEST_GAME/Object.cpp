@@ -12,7 +12,7 @@ Object::Object(SDL_Texture *texture, Point pos, Point texSize, double rotation)
 // This function renders the texture in its placement rectangle.
 void Object::Render(SDL_Renderer *renderer) 
 {
-	if (!hidden) {
+	if (hidden == false) {
 		SDL_Rect placementRect = { m_pos.x, m_pos.y, m_texSize.x, m_texSize.y };
 		SDL_RenderCopyEx(renderer, m_texture, NULL, &placementRect, 0, NULL, SDL_FLIP_NONE);
 	}

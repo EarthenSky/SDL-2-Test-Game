@@ -9,8 +9,10 @@
 #include <memory>
 #include "Player.h"
 #include <cmath>
+#include "HP.h"
 
 extern Player gPlayer;
+extern HPR gHP;
 //#include "EnemyManager.h"
 
 //TODO: add player attacks to checkInput().

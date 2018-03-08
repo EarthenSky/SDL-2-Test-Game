@@ -1,7 +1,6 @@
 #ifndef HPS
 #define HPS
 
-#include <SDL.h>
 #include "UIElement.h"
 
 class HPR : public UIElement {
@@ -14,6 +13,6 @@ public:
 	void render(SDL_Renderer *renderer);  //This is the math function
 
 	void setHPSize(int newhpValue);
-}
+};
 
 #endif

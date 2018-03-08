@@ -32,27 +32,45 @@ double findPlayerAngle(int yPos, int xPos)
 // Player is moves by velocity then checks collision.
 void Player::update()
 {
-	//move player based on velocity
-	m_position.x += m_velocity.x;
-	m_position.y += m_velocity.y;
+	//do attack straight movement
+	if (attackOn == true) {
+
+		// set move in that direction
+		double cos = std::cos((m_rotation - 90) * 3.141592 / 180);
+		double sin = std::sin((m_rotation - 90) * 3.141592 / 180);
+
+		m_position = { m_position.x + (50 * cos), m_position.y + (50 * sin) };
+	}
+	else { // Do key movement
+		//move player based on velocity
+		m_position.x += m_velocity.x;
+		m_position.y += m_velocity.y;
+	}
 }
 
 void Player::collision(Point collsionOffset)
 {
-	// This moves this object based on the collision offset. 
+	// This moves this object based on the collision offset. (sent by the walls)
 	m_position.x -= collsionOffset.x;
 	m_position.y -= collsionOffset.y;
+
+	// this stops the attack pattern when the player hits the wall.
+	if (attackOn == true && (std::abs(collsionOffset.x) > 0 || abs(collsionOffset.y) > 0)) {
+		attackOn = false;
+	}
 }
 
 void Player::render(SDL_Renderer *renderer) 
 {
 	//cuts out a single pane of the player animation and sets it to the players position.
 	SDL_Rect placementRect = { m_position.x, m_position.y, m_texWidth, m_texHeight };
-	//SDL_Rect cutRect = { 0, 16, 16, 16 };
 
-	//find rotation just before setting rotation
-	m_rotation = findPlayerAngle(m_position.y + m_texHeight / 2, m_position.x + m_texWidth / 2);
-
+	// halt rotation change when attacking (in a straight line)
+	if (attackOn == false) {
+		//find rotation just before setting rotation
+		m_rotation = findPlayerAngle(m_position.y + m_texHeight / 2, m_position.x + m_texWidth / 2);
+	}
+	
 	SDL_RenderCopyEx(renderer, m_texture, NULL, &placementRect, m_rotation, NULL, SDL_FLIP_NONE);
 }
 
@@ -64,6 +82,8 @@ bool wKeyDown = false;
 bool aKeyDown = false;
 bool sKeyDown = false;
 bool dKeyDown = false;
+
+bool spaceKeyDown = false;
 
 //how many movement keys are down.
 int keySum()
@@ -138,6 +158,11 @@ void Player::checkInput()
 				pressedKeyMoves(m_velocity.x, m_velocity.y);
 			}
 		}
+		else if (gInputHandler.key.keysym.sym == SDLK_SPACE) {
+			if (spaceKeyDown == true) {
+				spaceKeyDown = false;
+			}
+		}
 	}
 	else if (gInputHandler.type == SDL_KEYDOWN) {
 		if (gInputHandler.key.keysym.sym == SDLK_w) {
@@ -159,6 +184,12 @@ void Player::checkInput()
 			m_velocity.x = 4;
 			m_velocity.y = 0;
 			dKeyDown = true;
+		}
+		else if (gInputHandler.key.keysym.sym == SDLK_SPACE) {
+			if (spaceKeyDown == false) {
+				spaceKeyDown = true;
+				attackOn = true;
+			}
 		}
 	}
 	else if (gInputHandler.type == SDL_MOUSEMOTION) {
