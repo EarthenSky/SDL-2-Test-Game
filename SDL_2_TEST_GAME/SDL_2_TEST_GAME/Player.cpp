@@ -39,7 +39,7 @@ void Player::update()
 		double cos = std::cos((m_rotation - 90) * 3.141592 / 180);
 		double sin = std::sin((m_rotation - 90) * 3.141592 / 180);
 
-		m_position = { m_position.x + (50 * cos), m_position.y + (50 * sin) };
+		m_position = { m_position.x + (30 * cos), m_position.y + (30 * sin) };
 	}
 	else { // Do key movement
 		//move player based on velocity

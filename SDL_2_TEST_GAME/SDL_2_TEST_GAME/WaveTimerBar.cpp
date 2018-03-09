@@ -13,14 +13,35 @@ void WaveTimerBar::update()
 	m_objList[1]->m_pos = { m_objList[1]->m_pos.x, (131 * 4 - currentTimerValue / 26.4) };
 	m_objList[1]->m_texSize = { m_objList[1]->m_texSize.x, (currentTimerValue / 26.4) };
 
-	// If time is 10 seconds reset timer
+	// If timer reaches 10 seconds reset timer and spawn enemies
 	if (currentTimerValue > 10 * 1000) {
-		// Spawn enemies
-		for (int i = 0; i < 1; i++) {
+		// Randomize enemy count
+		int enemyCount = currentWave + (rand() % 5 - 2);
+		if (enemyCount <= 0) enemyCount = 1;
+		
+		// Spawn enemies equal to enemy count
+		for (int i = 0; i < enemyCount; i++) {
+			int spawnAreaNum = rand() % 3; //0 - 4
+			
+			int ySpawnPos;
+
+			// This keeps the enemy from spawning on the player, instead
+			// the enemy spawns out of the arena and is pushed to the edge by collision.
+			if (spawnAreaNum == 0) {  //this places the enemy to the left of the arena
+				int xSpawnPos = rand() % 300;
+			}
+			else if (spawnAreaNum == 1) {  //this places the enemy to the right of the arena
+				int xSpawnPos = rand() % 1400 + 900;
+			}
+			else {  //this places the enemy in the arena (over or below)
+				int xSpawnPos = rand() % 900 + 300;
+			}
 			gEnemyManager.spawnEnemy({ 400, (double)i * 20 }, { 80, 80 });
 		}
 	
 		initTime = SDL_GetTicks();
+
+		currentWave++;
 	}
 }
 
@@ -32,6 +53,8 @@ void WaveTimerBar::render(SDL_Renderer *renderer)
 
 void WaveTimerBar::init(SDL_Renderer *renderer)
 {
+	srand(time(NULL));  // Init the rng
+
 	// Bar Background Object
 	std::string backPath = "Images/BarBack.bmp";
 	SDL_Texture *backTex = loadTexture(renderer, backPath);
