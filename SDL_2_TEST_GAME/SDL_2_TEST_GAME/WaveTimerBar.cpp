@@ -24,19 +24,28 @@ void WaveTimerBar::update()
 			int spawnAreaNum = rand() % 3; //0 - 4
 			
 			int ySpawnPos;
+			int xSpawnPos;
 
 			// This keeps the enemy from spawning on the player, instead
 			// the enemy spawns out of the arena and is pushed to the edge by collision.
 			if (spawnAreaNum == 0) {  //this places the enemy to the left of the arena
-				int xSpawnPos = rand() % 300;
+				xSpawnPos = rand() % 300;
+				ySpawnPos = rand() % 675;
 			}
 			else if (spawnAreaNum == 1) {  //this places the enemy to the right of the arena
-				int xSpawnPos = rand() % 1400 + 900;
+				xSpawnPos = rand() % 1200 + 900;
+				ySpawnPos = rand() % 675;
 			}
 			else {  //this places the enemy in the arena (over or below)
-				int xSpawnPos = rand() % 900 + 300;
+				xSpawnPos = rand() % 900 + 300;
+				if (spawnAreaNum == 3) {
+					ySpawnPos = rand() % 0 + 75/2;
+				}
+				else {
+					ySpawnPos = rand() % (675 - 75) + 75/2;
+				}
 			}
-			gEnemyManager.spawnEnemy({ 400, (double)i * 20 }, { 80, 80 });
+			gEnemyManager.spawnEnemy({ (double)xSpawnPos, (double)ySpawnPos }, { 80, 80 });
 		}
 	
 		initTime = SDL_GetTicks();
