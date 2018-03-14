@@ -11,7 +11,7 @@ void DashCharges::addCharge()
 	chargeCount++; if (chargeCount > 3) chargeCount = 3;
 
 	// Change the texture
-	UIElement::m_objList.at(chargeCount - 1)->m_texture = m_chargeOnTex;
+	UIElement::m_objList.at(chargeCount - 1 + 3)->m_texture = m_chargeOnTex;
 }
 
 void DashCharges::removeCharge()
@@ -20,7 +20,7 @@ void DashCharges::removeCharge()
 	chargeCount--; if (chargeCount < 0) chargeCount = 0;
 
 	// Change the texture
-	UIElement::m_objList.at(chargeCount)->m_texture = m_chargeOffTex;
+	UIElement::m_objList.at(chargeCount + 3)->m_texture = m_chargeOffTex;
 }
 
 void DashCharges::update()
@@ -56,19 +56,19 @@ void DashCharges::init(SDL_Renderer *renderer)
 	std::string backPath = "Images/BarBack.bmp";
 	SDL_Texture *backTex = loadTexture(renderer, backPath);
 
-	DashCharges::AddUIObject(backTex, { 150 + 600, 135 }, { 100, 400 });
+	DashCharges::AddUIObject(backTex, { 150 + 800, 135 }, { 100, 400 });
 
 	// Bar Fill Object (the moving colour part)
 	std::string fillPath = "Images/Colour.bmp";
 	SDL_Texture *fillTex = loadTexture(renderer, fillPath);
 
-	DashCharges::AddUIObject(fillTex, { 150 + 600, 131 * 4 }, { 100, 5 }, 90);
+	DashCharges::AddUIObject(fillTex, { 150 + 800, 131 * 4 }, { 100, 5 }, 90);
 
 	// Bar Front Object
 	std::string frontPath = "Images/BarFront.bmp";
 	SDL_Texture *frontTex = loadTexture(renderer, frontPath);
 
-	DashCharges::AddUIObject(frontTex, { 150 + 600, 135 }, { 100, 400 });
+	DashCharges::AddUIObject(frontTex, { 150 + 800, 135 }, { 100, 400 });
 
 	// Init Charge Textures
 	std::string noChargePath = "Images/NoCharge.bmp";
@@ -78,8 +78,8 @@ void DashCharges::init(SDL_Renderer *renderer)
 	m_chargeOnTex = loadTexture(renderer, redChargePath);
 
 	// Create the 3 charge objects.
-	for (double index = 0; index < 5; index++) {
-		UIElement::AddUIObject(m_chargeOffTex, { 650 - (index * 75), 25 }, { 50, 50 });
+	for (double index = 0; index < 3; index++) {
+		UIElement::AddUIObject(m_chargeOffTex, { 950 - (index * 70), 25 }, { 50, 50 });
 	}
 
 	// Sets the initial time modifier (ms).

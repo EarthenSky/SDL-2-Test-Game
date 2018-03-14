@@ -80,9 +80,6 @@
     <ClInclude Include="Point.h">
       <Filter>Source Files\Systems</Filter>
     </ClInclude>
-    <ClInclude Include="UI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="UIElement.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -99,6 +96,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="DashCharges.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
