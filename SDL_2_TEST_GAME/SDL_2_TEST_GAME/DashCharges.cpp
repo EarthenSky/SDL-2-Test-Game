@@ -14,13 +14,20 @@ void DashCharges::addCharge()
 	UIElement::m_objList.at(chargeCount - 1 + 3)->m_texture = m_chargeOnTex;
 }
 
-void DashCharges::removeCharge()
+bool DashCharges::removeCharge()
 {
 	// Increment chargeCount yet cap it at 0.
 	chargeCount--; if (chargeCount < 0) chargeCount = 0;
 
 	// Change the texture
 	UIElement::m_objList.at(chargeCount + 3)->m_texture = m_chargeOffTex;
+
+	if (chargeCount == 0) {
+		return false;
+	}
+	else {
+		return true;
+	}
 }
 
 void DashCharges::update()

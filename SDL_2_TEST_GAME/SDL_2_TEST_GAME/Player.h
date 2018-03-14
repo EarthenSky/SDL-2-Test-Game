@@ -5,8 +5,9 @@
 #include <string>
 #include <cmath>
 #include "Point.h"
+#include "DashCharges.h" 
 
-//TODO: add player attacks to checkInput().
+extern DashCharges gDashCharges;
 
 SDL_Texture *loadTexture(SDL_Renderer *renderer, std::string path);
 

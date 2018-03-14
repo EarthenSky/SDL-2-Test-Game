@@ -5,8 +5,6 @@
 #include <stdlib.h>  // For rand()
 #include <time.h>  // For time()
 
-//extern EnemyManager gEnemyManager;
-
 class DashCharges : public UIElement {
 public:
 	//the textures for both charges
@@ -14,7 +12,7 @@ public:
 	SDL_Texture *m_chargeOffTex = NULL;
 
 	void addCharge();
-	void removeCharge();
+	bool removeCharge();
 	
 	// The render objects are created here.
 	void init(SDL_Renderer *renderer);

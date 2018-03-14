@@ -187,8 +187,11 @@ void Player::checkInput()
 		}
 		else if (gInputHandler.key.keysym.sym == SDLK_SPACE) {
 			if (spaceKeyDown == false) {
-				spaceKeyDown = true;
-				attackOn = true;
+				//if false there are no more charges left and the attack isn't triggered.
+				if (gDashCharges.removeCharge() == true) {
+					spaceKeyDown = true;
+					attackOn = true;
+				}
 			}
 		}
 	}
