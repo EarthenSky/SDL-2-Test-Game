@@ -3,8 +3,6 @@
 float currentTimerValue2 = 0;
 float initTime2 = 0;
 
-int chargeCount = 0;
-
 void DashCharges::addCharge() 
 {
 	// Increment chargeCount yet cap it at 3.
@@ -16,17 +14,27 @@ void DashCharges::addCharge()
 
 bool DashCharges::removeCharge()
 {
-	// Increment chargeCount yet cap it at 0.
-	chargeCount--; if (chargeCount < 0) chargeCount = 0;
+	// Decrement chargeCount
+	chargeCount--; 
 
-	// Change the texture
-	UIElement::m_objList.at(chargeCount + 3)->m_texture = m_chargeOffTex;
+	// Check if attacking is ok.
+	if (chargeCount < 0) {
+		// Cap chargeCount at 0.
+		if (chargeCount < 0) chargeCount = 0;
 
-	if (chargeCount == 0) {
-		return false;
+		// Change the texture
+		UIElement::m_objList.at(chargeCount + 3)->m_texture = m_chargeOffTex;
+
+		return false;  // False means no attack
 	}
 	else {
-		return true;
+		// Cap chargeCount at 0.
+		if (chargeCount < 0) chargeCount = 0;
+		
+		// Change the texture
+		UIElement::m_objList.at(chargeCount + 3)->m_texture = m_chargeOffTex;
+
+		return true;  // True means attack
 	}
 }
 
@@ -39,7 +47,7 @@ void DashCharges::update()
 	m_objList[1]->m_pos = { m_objList[1]->m_pos.x, (131 * 4 - currentTimerValue2 / 26.4 * 10/4) };
 	m_objList[1]->m_texSize = { m_objList[1]->m_texSize.x, (currentTimerValue2 / 26.4 * 10/4) };
 
-	// If timer reaches 10 seconds reset timer and add new charge
+	// If timer reaches 4 seconds reset timer and add new charge
 	if (currentTimerValue2 > 4 * 1000) {
 		// Add new charge.
 		DashCharges::addCharge();
@@ -85,8 +93,8 @@ void DashCharges::init(SDL_Renderer *renderer)
 	m_chargeOnTex = loadTexture(renderer, redChargePath);
 
 	// Create the 3 charge objects.
-	for (double index = 0; index < 3; index++) {
-		UIElement::AddUIObject(m_chargeOffTex, { 950 - (index * 70), 25 }, { 50, 50 });
+	for (double index = 1; index < 4; index++) {
+		UIElement::AddUIObject(m_chargeOffTex, { 1200 - (index * 70), 25 }, { 50, 50 });
 	}
 
 	// Sets the initial time modifier (ms).

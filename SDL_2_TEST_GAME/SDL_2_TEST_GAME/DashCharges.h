@@ -13,6 +13,9 @@ public:
 
 	void addCharge();
 	bool removeCharge();
+
+	// How many charges currently exist.
+	int chargeCount = 0;
 	
 	// The render objects are created here.
 	void init(SDL_Renderer *renderer);
